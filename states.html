@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>States — ValueChain</title>
+<meta name="description" content="Which Indian states power the country's exports: the latest quarterly ranking, what each big state ships, the top exporting districts, and every state & UT.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23b34700'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>V</text></svg>">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">Value<span>Chain</span></a>
+    <div class="navlinks">
+      <a href="index.html#trend">Trend</a>
+      <a href="head-to-head.html">Head-to-Head</a>
+      <a href="products.html">Products</a>
+      <a href="sourcing.html">Sourcing</a>
+      <a href="states.html" style="background:var(--accent-soft);color:var(--accent)">States</a>
+      <a href="explainers.html">Explainers</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker-light">Data story No. 6 · DGCIS, Ministry of Commerce</p>
+    <h1>Who inside India<br>does the exporting?</h1>
+    <p class="herosub">
+      India&rsquo;s exports are startlingly concentrated: a handful of states —
+      and even a handful of districts — carry the whole country. Here is the
+      map, from Gujarat&rsquo;s refineries to Noida&rsquo;s phone factories.
+    </p>
+    <div class="heronums">
+      <div class="hn"><span class="hn-num" id="chip-guj">…</span><span class="hn-lbl">Gujarat&rsquo;s share of India&rsquo;s exports, latest quarter</span></div>
+      <div class="hn"><span class="hn-num hn-blue" id="chip-top3">…</span><span class="hn-lbl">Shipped by just three states</span></div>
+      <div class="hn"><span class="hn-num hn-red" id="chip-dist">…</span><span class="hn-lbl">Shipped by just ten districts</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card chart-block" id="quarter">
+      <span class="secno">01</span>
+      <h2>The state ranking, latest quarter</h2>
+      <p class="chart-sub">Merchandise exports, July–September 2025, with growth on a year earlier (▲▼).</p>
+      <div id="chart-quarter" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-quarter">⬇ CSV</button>
+      </div>
+      <p class="note">
+        Karnataka grew fastest (▲28%), powered by electronics; Telangana fell
+        hardest (▼22%). Andhra Pradesh also slipped. Thirteen of the fifteen
+        top states grew.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="fy">
+      <span class="secno">02</span>
+      <h2>The full-year league table</h2>
+      <p class="chart-sub">Merchandise exports, full fiscal year 2024-25 — the eight biggest exporter states.</p>
+      <div id="chart-fy" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-fy">⬇ CSV</button>
+      </div>
+      <p class="note">
+        Gujarat alone exports more than the next three states combined —
+        largely because India&rsquo;s petroleum-product exports leave from a
+        single Jamnagar refinery complex.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="sectors">
+      <span class="secno">03</span>
+      <h2>What does each big state ship?</h2>
+      <p class="chart-sub">
+        The top five commodity groups per state (share of the state&rsquo;s
+        exports, latest quarter). Click a chip to open that product&rsquo;s
+        global picture.
+      </p>
+      <div id="sector-cards"></div>
+
+      <div class="bilat" id="state-pick">
+        <h3 class="bilat-h">Check any other state</h3>
+        <p class="chart-sub">
+          Pick any of the 36 states and union territories for its export
+          profile — DGCIS publishes the full commodity breakdown only for the
+          top five, so smaller states show what is officially reported.
+        </p>
+        <div class="controls">
+          <select id="state-select" class="chapsel" aria-label="Pick a state"></select>
+        </div>
+        <div id="state-custom"></div>
+        <p class="note note-strong">
+          <i>What this card can and cannot show.</i>
+          Official data thins out below the biggest states, so this card shows
+          each tier honestly rather than guessing:
+          the <i>top 5 states</i> get their full five-commodity breakdown with
+          percentage shares (DGCIS publishes this only for them);
+          the <i>top 15 states</i> get their latest-quarter export value and
+          year-on-year growth (DGCIS reports quarterly figures only that far
+          down);
+          <i>every other state and UT</i> shows its full-year export value and
+          officially recorded leading export from FY 2022-23 — the most recent
+          year with complete coverage of all 36. All figures are merchandise
+          (goods) only, from the Ministry of Commerce (DGCIS/NIRYAT) — not UN
+          Comtrade, which has no state-level data. Nothing on this card is
+          estimated or extrapolated.
+        </p>
+      </div>
+    </section>
+
+    <section class="card chart-block" id="districts">
+      <span class="secno">04</span>
+      <h2>The ten districts that carry India</h2>
+      <p class="chart-sub">Top exporting districts, latest quarter — together nearly 37% of everything India ships.</p>
+      <div id="district-rows"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-districts">⬇ CSV</button>
+      </div>
+      <p class="note">
+        Four of the ten are in Gujarat, three in Maharashtra. Noida (Gautam
+        Buddha Nagar) is Uttar Pradesh&rsquo;s entry — see
+        <a href="explainers.html#policies" style="color:var(--accent)">what each state government does for its exporters</a>
+        on the explainers page.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="all">
+      <span class="secno">05</span>
+      <h2>Every state and union territory</h2>
+      <p class="chart-sub">
+        All 36, ranked — FY 2022-23, the latest year with complete official
+        coverage of every state and UT.
+      </p>
+      <div id="chart-all" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-all">⬇ CSV</button>
+      </div>
+      <p class="note">
+        The long tail is stark: the entire North-East together exports less
+        than a single mid-sized Gujarat district. Landlocked states without
+        mineral or industrial bases barely register — the geography of ports
+        is the geography of trade.
+      </p>
+    </section>
+
+    <section class="methodology">
+      <h3>About this data</h3>
+      <p>
+        Unlike the rest of this site, state-level trade does not come from UN
+        Comtrade (which only has national data). This page uses the
+        <a href="https://www.dgciskol.gov.in/">DGCIS Quarterly Review of Merchandise Foreign Trade</a>
+        (Ministry of Commerce &amp; Industry, Government of India) — quarterly
+        and district figures from the July–September 2025 review (released
+        November 2025) — and full-year state figures from the Ministry&rsquo;s
+        <a href="https://niryat.gov.in/">NIRYAT</a> portal. Merchandise
+        (goods) only; services excluded throughout. These figures are updated
+        by hand when DGCIS publishes a new quarterly review — they are not
+        refreshed by <code>scripts/fetch_data.py</code>.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <span class="brand-foot">Value<span>Chain</span></span><br>
+    Built by Shobhit Narayan Singh · An open data project ·
+    <a href="mailto:sns.qwerty111@gmail.com">Contact</a><br>
+    <span class="stamp"></span>
+  </div>
+</footer>
+
+<script src="data/vc_states.js"></script>
+<script src="js/vendor/echarts.min.js" onerror="this.remove()"></script>
+<script src="js/states.js"></script>
+</body>
+</html>
