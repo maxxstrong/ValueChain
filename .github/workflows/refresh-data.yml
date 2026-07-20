@@ -1,0 +1,29 @@
+name: Refresh trade data
+on:
+  schedule:
+    - cron: "0 3 1 7 *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch fresh data from UN Comtrade
+        run: python scripts/fetch_data.py --force
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "valuechain-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Annual data refresh ($(date +%Y-%m-%d))"
+            git push
+          fi
