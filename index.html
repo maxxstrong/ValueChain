@@ -4,9 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ValueChain — India in Global Value Chains</title>
-<meta name="description" content="An interactive data atlas of where India sits in world trade, built on UN Comtrade data.">
+<meta name="description" content="Where India sits in world trade: who buys from India, who India buys from, and how it is changing. Built on UN Comtrade data, free to download.">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23b34700'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>V</text></svg>">
+<!--VC:HEAD-->
+<link rel="canonical" href="https://valuechain.international/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ValueChain">
+<meta property="og:title" content="India in Global Value Chains — trade data atlas">
+<meta property="og:description" content="Where India sits in world trade: who buys from India, who India buys from, and how it is changing. Built on UN Comtrade data, free to download.">
+<meta property="og:url" content="https://valuechain.international/">
+<meta property="og:image" content="https://valuechain.international/og/index.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="India in Global Value Chains — trade data atlas">
+<meta name="twitter:description" content="Where India sits in world trade: who buys from India, who India buys from, and how it is changing. Built on UN Comtrade data, free to download.">
+<meta name="twitter:image" content="https://valuechain.international/og/index.png">
+<meta name="author" content="ValueChain">
+<meta name="robots" content="index, follow">
+<script defer src="/_vercel/insights/script.js"></script>
+<!--/VC:HEAD-->
 </head>
 <body>
 
@@ -18,8 +36,12 @@
       <a href="head-to-head.html">Head-to-Head</a>
       <a href="products.html">Products</a>
       <a href="sourcing.html">Sourcing</a>
+      <a href="services.html">Services</a>
       <a href="states.html">States</a>
       <a href="explainers.html">Explainers</a>
+      <a href="toolkit.html">Toolkit</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
     </div>
   </div>
 </nav>
@@ -28,25 +50,34 @@
   <div class="wrap">
     <p class="kicker-light">An open data atlas · UN Comtrade</p>
     <h1>Where does India sit<br>in world trade?</h1>
-    <p class="herosub">
+    <!--VC:FRESH-->
+    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q2 FY2025-26 (July–September 2025) and FY 2024-25 (April 2024 – March 2025). Page built 26 July 2026.</p>
+    <!--/VC:FRESH--><p class="herosub">
       Who buys from India, who India buys from, and how it is changing —
       in three interactive charts. Flip, zoom, tap, download.
     </p>
     <div class="heronums">
       <div class="hn">
-        <span class="hn-num" id="kn-exports">…</span>
-        <span class="hn-lbl">Goods exports · <span class="latest-year"></span></span>
+        <span class="hn-num" id="kn-exports">$446 bn</span>
+        <span class="hn-lbl">Goods exports · <span class="latest-year">2025</span></span>
       </div>
       <div class="hn">
-        <span class="hn-num hn-blue" id="kn-imports">…</span>
-        <span class="hn-lbl">Goods imports · <span class="latest-year"></span></span>
+        <span class="hn-num hn-blue" id="kn-imports">$753 bn</span>
+        <span class="hn-lbl">Goods imports · <span class="latest-year">2025</span></span>
       </div>
       <div class="hn">
-        <span class="hn-num hn-red" id="kn-deficit">…</span>
-        <span class="hn-lbl">Trade deficit · <span class="latest-year"></span></span>
+        <span class="hn-num hn-red" id="kn-deficit">$307 bn</span>
+        <span class="hn-lbl">Trade deficit · <span class="latest-year">2025</span></span>
       </div>
     </div>
     <a class="hero-cta" href="#trend">Explore the data ↓</a>
+    <p class="scopenote">
+      <b>Goods only.</b> Every figure on this site is merchandise trade.
+      India&rsquo;s services exports — IT, business services, travel — are
+      comparable in scale and arguably the country&rsquo;s real strength; they
+      are missing here because UN Comtrade covers goods.
+      <a href="about.html#limits">What else this atlas leaves out →</a>
+    </p>
   </div>
 </header>
 
@@ -57,7 +88,7 @@
     <section class="card chart-block" id="trend">
       <span class="secno">01</span>
       <h2>How much does India trade with the world?</h2>
-      <p class="chart-sub">India&rsquo;s goods trade, 2016&ndash;<span class="yr"></span>, US$ billion. Drag the slider to zoom into any period.</p>
+      <p class="chart-sub">India&rsquo;s goods trade, 2016&ndash;<span class="yr">2025</span>, US$ billion. Drag the slider to zoom into any period.</p>
       <div class="controls">
         <div class="seg" data-group="trend" role="group" aria-label="Trend view">
           <button data-v="value" class="on">US$ values</button>
@@ -130,13 +161,15 @@
     <!-- ROADMAP -->
     <section class="card roadmap" id="roadmap">
       <span class="secno">·</span>
-      <h2>Coming next on ValueChain</h2>
+      <h2>Explore the atlas</h2>
       <ul>
-        <li><b>Head-to-Head</b> <span class="tag">live</span> — <a href="head-to-head.html" style="color:var(--accent)">India vs China, Vietnam and Bangladesh</a> in textiles, pharma, leather and electronics, in the US and EU markets.</li>
-        <li><b>Product pages</b> <span class="tag">live</span> — <a href="products.html" style="color:var(--accent)">pick a product</a>: India&rsquo;s trend, the world&rsquo;s biggest import markets, and the gap between the two.</li>
-        <li><b>Sourcing view</b> <span class="tag">live</span> — <a href="sourcing.html" style="color:var(--accent)">where the world, and India, buy a given product from</a>, supplier by supplier.</li>
-        <li><b>Explainers</b> <span class="tag">live</span> — <a href="explainers.html" style="color:var(--accent)">India&rsquo;s trade agreements by sector</a>, country-by-country trade histories, and every state&rsquo;s export policies.</li>
-        <li><b>States</b> <span class="tag">live</span> — <a href="states.html" style="color:var(--accent)">which states and districts power India&rsquo;s exports</a>, from Gujarat&rsquo;s refineries to Noida&rsquo;s phone factories.</li>
+        <li><b>Head-to-Head</b> — <a href="head-to-head.html" style="color:var(--accent-text)">India vs China, Vietnam and Bangladesh</a> in textiles, pharma, leather and electronics, in the US and EU markets — plus India&rsquo;s trade with any single country.</li>
+        <li><b>Product pages</b> — <a href="products.html" style="color:var(--accent-text)">pick a product</a>: India&rsquo;s trend, the world&rsquo;s biggest import markets, and the gap between the two.</li>
+        <li><b>Sourcing view</b> — <a href="sourcing.html" style="color:var(--accent-text)">where the world, and India, buy a given product from</a>, supplier by supplier.</li>
+        <li><b>States</b> — <a href="states.html" style="color:var(--accent-text)">which states and districts power India&rsquo;s exports</a>, from Gujarat&rsquo;s refineries to Noida&rsquo;s phone factories.</li>
+        <li><b>Explainers</b> — <a href="explainers.html" style="color:var(--accent-text)">India&rsquo;s trade agreements sector by sector</a>, and what each state government does to push exports.</li>
+        <li><b>Exporter&rsquo;s toolkit</b> — <a href="toolkit.html" style="color:var(--accent-text)">answer four questions</a>: your best markets, whether an agreement covers them, the schemes you likely qualify for, and where to apply.</li>
+        <li><b>About &amp; methodology</b> — <a href="about.html" style="color:var(--accent-text)">who built this, where every number comes from</a>, how often it refreshes, and how to report an error.</li>
       </ul>
     </section>
 
@@ -152,15 +185,24 @@
         Ministry of Commerce statistics because of timing, exchange-rate
         conversion and revisions.
       </p>
+    
+      <p class="cite">
+        <b>How to cite this page.</b> ValueChain. (<span class="latest-year">2025</span>).
+        <i>India in global value chains.</i>
+        <a href="https://valuechain.international/">https://valuechain.international/</a>
+      </p>
     </section>
   </div>
-</main>
+
+    <p class="errline">Spotted something that looks wrong? <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Tell us and we’ll check it against the source</a> — corrections are welcome.</p>
+  </main>
 
 <footer class="sitefoot">
   <div class="wrap">
     <span class="brand-foot">Value<span>Chain</span></span><br>
-    Built by Shobhit Narayan Singh · An open data project ·
-    <a href="mailto:sns.qwerty111@gmail.com">Contact</a><br>
+    An independent open data project ·
+    <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Contact</a> · <a href="about.html">About &amp; methodology</a><br>
+    <span class="licence">Charts and data notes released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span><br>
     <span class="stamp"></span>
   </div>
 </footer>

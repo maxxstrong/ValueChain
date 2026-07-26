@@ -39,6 +39,28 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "raw")
 OUT = os.path.join(ROOT, "data")
 
+SCRIPT_VERSION = "2.0"
+
+# Periods for the hand-maintained DGCIS/NIRYAT layer (states page). These are
+# the single source of truth for the dates shown on that page — update them
+# here when you refresh data/vc_states.js, and every label follows.
+DGCIS_QUARTER = "Q2 FY2025-26 (July–September 2025)"
+DGCIS_FULL_YEAR = "FY 2024-25 (April 2024 – March 2025)"
+DGCIS_ALL_STATES = "FY 2022-23 (April 2022 – March 2023)"
+
+
+def _utc_now():
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+# ------------------------------------------------------------------ validation
+# A stale-but-correct site beats a fresh-but-wrong one. Nothing is written to
+# data/ until every check in scripts/validate.py passes on the freshly built
+# objects. Run those checks standalone any time with:
+#     python3 scripts/validate.py
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from validate import validate_all, ValidationError  # noqa: E402
+
 BASE = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
 AUTH_BASE = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
 API_KEY = os.environ.get("COMTRADE_API_KEY", "").strip()
@@ -506,7 +528,10 @@ def process_s3(latest):
     panel_all["eu"] = ("97", "European Union")
     for mkey, (_, label) in panel_all.items():
         if mkey in ("usa", "eu"):
-            paths, yr = _glob.glob(os.path.join(RAW, f"h2h_{mkey}_*.csv")), latest
+            # sorted() is load-bearing: later files overwrite earlier ones for
+            # the same (partner, chapter) key, so patch files must be named to
+            # sort last (see data/raw/h2h_eu_zz_patch_*.csv).
+            paths, yr = sorted(_glob.glob(os.path.join(RAW, f"h2h_{mkey}_*.csv"))), latest
         else:
             paths = sorted(_glob.glob(os.path.join(RAW, f"panel_{mkey}_*.csv")), reverse=True)[:1]
             if not paths:
@@ -716,6 +741,8 @@ def process_bilat(latest):
                 code = r.get("partnerCode")
                 if code in ("0", None, ""):   # 0 = World row
                     continue
+                if code == INDIA:             # India is not its own partner
+                    continue
                 if r.get("partner2Code") not in ("0", None, ""):
                     continue
                 try:
@@ -738,7 +765,9 @@ def process_bilat(latest):
 def do_process():
     names = partner_names()
 
-    # Trend
+    # ---- BUILD EVERYTHING IN MEMORY FIRST -------------------------------
+    # Nothing touches data/ until validate_all() passes, so a bad fetch can
+    # never overwrite a good site.
     with open(os.path.join(RAW, "yearly_totals.csv"), encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     years = sorted({int(r["year"]) for r in rows})
@@ -749,10 +778,49 @@ def do_process():
         "imports": [next(float(r["value_usd"]) for r in rows if int(r["year"]) == y and r["flow"] == "M") for y in years],
     }
 
-    data_as_of = date.today().strftime("%B %Y")
-    meta = {"latest_year": latest, "data_as_of": data_as_of,
-            "source": "UN Comtrade", "reporter": "India",
-            "generated": date.today().isoformat()}
+    built = {"trend": trend}
+
+    for flow, key in (("X", "exports"), ("M", "imports")):
+        path = pick(os.path.join(RAW, f"partners_{key}_{latest}.csv"))
+        world, ranked = load_partner_csv(path, flow, names)
+        top = ranked[:TOP_N_PARTNERS]
+        others = (world or sum(r["value"] for r in ranked)) - sum(r["value"] for r in top)
+        built[f"partners_{key}"] = {"year": latest, "world_total": world,
+                                    "rows": top, "others": max(others, 0)}
+
+    for flow, key in (("X", "exports"), ("M", "imports")):
+        path = pick(os.path.join(RAW, f"hs2_{key}_{latest}.csv"))
+        vals = load_hs2_csv(path, flow)
+        rows2 = [{"hs2": c, "label": HS2_LABELS.get(c, f"HS {c}"), "value": v}
+                 for c, v in sorted(vals.items(), key=lambda kv: -kv[1])]
+        built[f"products_{key}"] = {"year": latest, "rows": rows2}
+
+    built["headtohead"] = process_h2h(latest)
+    built["productpages"] = process_s3(latest)
+    built["sourcing"] = process_s4(latest)
+    built["bilateral"] = process_bilat(latest)
+
+    # ---- GATE ------------------------------------------------------------
+    row_counts = validate_all(built, years)
+
+    # ---- ONLY NOW WRITE --------------------------------------------------
+    meta = {
+        "latest_year": latest,
+        "data_as_of": date.today().strftime("%B %Y"),
+        "source": "UN Comtrade",
+        "reporter": "India",
+        "generated": date.today().isoformat(),
+        "refreshed_at": _utc_now(),
+        "script_version": SCRIPT_VERSION,
+        "periods": {
+            "comtrade": f"calendar year {latest}",
+            "comtrade_window": f"{years[0]}–{latest}",
+            "dgcis_quarter": DGCIS_QUARTER,
+            "dgcis_full_year": DGCIS_FULL_YEAR,
+            "dgcis_all_states": DGCIS_ALL_STATES,
+        },
+        "row_counts": row_counts,
+    }
 
     def dump(fname, obj):
         with open(os.path.join(OUT, fname), "w", encoding="utf-8") as f:
@@ -761,35 +829,14 @@ def do_process():
 
     dump("meta.json", meta)
     dump("trend.json", trend)
-
-    # Partners
     for flow, key in (("X", "exports"), ("M", "imports")):
-        path = pick(os.path.join(RAW, f"partners_{key}_{latest}.csv"))
-        world, ranked = load_partner_csv(path, flow, names)
-        top = ranked[:TOP_N_PARTNERS]
-        others = (world or sum(r["value"] for r in ranked)) - sum(r["value"] for r in top)
-        dump(f"partners_{key}.json", {"year": latest, "world_total": world,
-                                      "rows": top, "others": max(others, 0)})
+        dump(f"partners_{key}.json", built[f"partners_{key}"])
+        dump(f"products_{key}.json", built[f"products_{key}"])
+    dump("headtohead.json", built["headtohead"])
+    dump("productpages.json", built["productpages"])
+    dump("sourcing.json", built["sourcing"])
 
-    # Products (HS2)
-    for flow, key in (("X", "exports"), ("M", "imports")):
-        path = pick(os.path.join(RAW, f"hs2_{key}_{latest}.csv"))
-        vals = load_hs2_csv(path, flow)
-        rows = [{"hs2": c, "label": HS2_LABELS.get(c, f"HS {c}"), "value": v}
-                for c, v in sorted(vals.items(), key=lambda kv: -kv[1])]
-        dump(f"products_{key}.json", {"year": latest, "rows": rows})
-
-    # Head-to-head (Session 2)
-    dump("headtohead.json", process_h2h(latest))
-
-    # Product pages (Session 3)
-    dump("productpages.json", process_s3(latest))
-
-    # Sourcing view (Session 4)
-    dump("sourcing.json", process_s4(latest))
-
-    # Bilateral totals for the explainers page (Session 5)
-    dump("bilateral.json", process_bilat(latest))
+    dump("bilateral.json", built["bilateral"])
 
     # Bundle the numbers into small .js files so the site also works when an
     # HTML file is opened directly (file://), where fetch() is blocked.
@@ -812,6 +859,7 @@ def do_process():
 if __name__ == "__main__":
     args = set(sys.argv[1:])
     os.makedirs(RAW, exist_ok=True)
+    strict = "--strict" in args          # used by CI: any fetch failure aborts
     if "--process-only" not in args:
         try:
             latest = do_fetch(force="--force" in args)
@@ -820,6 +868,14 @@ if __name__ == "__main__":
             do_fetch_s4(latest, force="--force" in args)
             do_fetch_bilat(latest, force="--force" in args)
         except Exception as e:
+            if strict:
+                print(f"\nFETCH FAILED: {e}")
+                sys.exit(1)
             print(f"\nWARNING: fetching failed ({e}).")
             print("Falling back to whatever is cached in data/raw/.\n")
-    do_process()
+    try:
+        do_process()
+    except ValidationError as e:
+        print(f"\nAborted: {e}")
+        print("Nothing was written. The site keeps serving the previous data.")
+        sys.exit(1)

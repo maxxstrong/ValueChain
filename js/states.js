@@ -45,7 +45,7 @@ function hBar(labels, values, colors, fmt) {
 function init() {
   const S = window.VC_DATA.states;
   document.querySelectorAll(".stamp").forEach((el) => {
-    el.textContent = `Data: ${S.meta.quarter} · Source: DGCIS, Ministry of Commerce`;
+    el.textContent = `Source: DGCIS / NIRYAT, Ministry of Commerce · periods labelled per card`;
   });
 
   /* hero chips */
@@ -55,10 +55,10 @@ function init() {
   document.getElementById("chip-top3").textContent = top3.toFixed(0) + "%";
   document.getElementById("chip-dist").textContent = "37%";
 
-  /* 01 — latest quarter ranking */
+  /* 05 — quarterly snapshot (demoted; no YoY chips — see brief P1.5) */
   const qc = makeChart("chart-quarter", q.length * 30 + 40);
   qc.setOption(hBar(
-    q.map((r) => r.state + (r.yoy ? `  ${r.yoy > 0 ? "▲" : "▼"}${Math.abs(r.yoy).toFixed(0)}%` : "")),
+    q.map((r) => r.state),
     q.map((r) => r.q2),
     q.map((r, i) => r.state.indexOf("other") !== -1 ? REST : (i < 3 ? ACCENT : BLUE)),
     (v) => "$" + v.toFixed(1) + " bn"));
@@ -110,17 +110,22 @@ function init() {
   /* 03b — custom state picker */
   const GOOD_HS = { "Petroleum products": "27", "Engineering goods": "84",
     "Electronic goods": "85", "Pharmaceuticals": "30" };
+  // listed A–Z; the option value stays the row's rank index, so the card
+  // can still show "India's #7 exporter state"
   const ssel = document.getElementById("state-select");
-  all.forEach((r, i) => {
-    const o = document.createElement("option");
-    o.value = String(i);
-    const v = r.value >= 1000 ? "$" + (r.value / 1000).toFixed(1) + " bn" : "$" + Math.round(r.value) + " m";
-    o.textContent = `${r.state} — ${v}`;
-    ssel.appendChild(o);
-  });
+  all.map((r, i) => ({ r, i }))
+    .sort((a, b) => a.r.state.localeCompare(b.r.state))
+    .forEach(({ r, i }) => {
+      const o = document.createElement("option");
+      o.value = String(i);
+      const v = r.value >= 1000 ? "$" + (r.value / 1000).toFixed(1) + " bn" : "$" + Math.round(r.value) + " m";
+      o.textContent = `${r.state} — ${v}`;
+      ssel.appendChild(o);
+    });
   const renderState = () => {
     const i = parseInt(ssel.value, 10);
-    const r = all[i];
+    const r = all[Number.isFinite(i) ? i : 0];
+    if (!r) return;
     const qrow = q.find((x) => x.state === r.state);
     const srow = S.sectors.rows.find((x) => x.state === r.state);
     const v = r.value >= 1000 ? "$" + (r.value / 1000).toFixed(1) + " bn" : "$" + Math.round(r.value) + " m";
@@ -140,11 +145,10 @@ function init() {
     }
     let qline = "";
     if (qrow) {
-      const dir = qrow.yoy >= 0 ? "▲" : "▼";
-      qline = `<span class="dr-why">Latest quarter (Jul–Sep 2025): $${qrow.q2.toFixed(1)} bn — ` +
-        `${qrow.share.toFixed(1)}% of India's exports, ${dir}${Math.abs(qrow.yoy).toFixed(0)}% on a year earlier.</span>`;
+      qline = `<span class="dr-why">Q2 FY2025-26 (Jul–Sep 2025): $${qrow.q2.toFixed(1)} bn — ` +
+        `${qrow.share.toFixed(1)}% of India's exports that quarter.</span>`;
     } else if (r.state !== "Lakshadweep") {
-      qline = `<span class="dr-why">Not among the top 15 states DGCIS reports quarterly — figures are for FY 2022-23, the latest complete official year.</span>`;
+      qline = `<span class="dr-why">Not among the top 15 states DGCIS reports quarterly — figure is for FY 2022-23, the most recent year with complete official coverage.</span>`;
     }
     document.getElementById("state-custom").innerHTML =
       `<div class="statecard"><b>${r.state}</b>` +

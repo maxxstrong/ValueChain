@@ -138,11 +138,15 @@ function init() {
 
   /* populate the custom dropdown, biggest product groups first */
   const sel = document.getElementById("chapter-select");
+  // default lands on the biggest market, but the list itself is alphabetical
+  // so it can be scanned rather than searched
   const chapCodes = Object.keys(H.chapters).sort((a, b) =>
     (H.chapter_series.usa[b].world[n] + H.chapter_series.eu[b].world[n]) -
     (H.chapter_series.usa[a].world[n] + H.chapter_series.eu[a].world[n]));
   state.chapter = chapCodes[0];
-  for (const hs of chapCodes) {
+  const chapAZ = Object.keys(H.chapters).sort((a, b) =>
+    H.chapters[a].localeCompare(H.chapters[b]));
+  for (const hs of chapAZ) {
     const o = document.createElement("option");
     o.value = hs;
     o.textContent = `${H.chapters[hs]} (HS ${hs})`;
@@ -152,7 +156,7 @@ function init() {
 
   /* second dropdown: append a product group to the scoreboard */
   const snapSel = document.getElementById("snap-select");
-  for (const hs of chapCodes) {
+  for (const hs of chapAZ) {
     const o = document.createElement("option");
     o.value = hs;
     o.textContent = `${H.chapters[hs]} (HS ${hs})`;

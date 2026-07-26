@@ -115,9 +115,12 @@ function init() {
 
   /* selector, sorted by India's latest exports */
   const sel = document.getElementById("product-select");
+  // ranked by size for choosing the default; listed A–Z for the user
   const codes = Object.keys(P.chapters).sort((a, b) =>
     P.india_trend[b].exports[n] - P.india_trend[a].exports[n]);
-  for (const hs of codes) {
+  const codesAZ = Object.keys(P.chapters).sort((a, b) =>
+    P.chapters[a].localeCompare(P.chapters[b]));
+  for (const hs of codesAZ) {
     const o = document.createElement("option");
     o.value = hs;
     o.textContent = `${P.chapters[hs]} (HS ${hs}) — ${fmtBnShort(P.india_trend[hs].exports[n])}`;

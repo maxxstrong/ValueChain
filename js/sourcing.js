@@ -85,9 +85,12 @@ function init() {
 
   /* selector, sorted by India's import bill */
   const sel = document.getElementById("source-select");
+  // ranked by import bill for the default; listed A–Z for the user
   const codes = Object.keys(S.chapters).sort((a, b) =>
     (S.india_world_imports[b] || 0) - (S.india_world_imports[a] || 0));
-  for (const hs of codes) {
+  const codesAZ = Object.keys(S.chapters).sort((a, b) =>
+    S.chapters[a].localeCompare(S.chapters[b]));
+  for (const hs of codesAZ) {
     const o = document.createElement("option");
     o.value = hs;
     o.textContent = `${S.chapters[hs]} (HS ${hs}) — ${fmtBnShort(S.india_world_imports[hs] || 0)}`;

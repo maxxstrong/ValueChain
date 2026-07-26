@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!sel || !out || !window.VC_DATA || !window.VC_DATA.policies) return;
   const P = window.VC_DATA.policies;
 
-  for (const name of P.all_names) {
+  for (const name of P.all_names.slice().sort((a, b) => a.localeCompare(b))) {
     const o = document.createElement("option");
     o.value = name;
     o.textContent = name + (P.states[name] ? "" : " (national schemes only)");

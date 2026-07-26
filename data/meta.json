@@ -1,0 +1,41 @@
+{
+ "latest_year": 2025,
+ "data_as_of": "July 2026",
+ "source": "UN Comtrade",
+ "reporter": "India",
+ "generated": "2026-07-26",
+ "refreshed_at": "2026-07-26T08:02:54Z",
+ "script_version": "2.0",
+ "periods": {
+  "comtrade": "calendar year 2025",
+  "comtrade_window": "2016–2025",
+  "dgcis_quarter": "Q2 FY2025-26 (July–September 2025)",
+  "dgcis_full_year": "FY 2024-25 (April 2024 – March 2025)",
+  "dgcis_all_states": "FY 2022-23 (April 2022 – March 2023)"
+ },
+ "row_counts": {
+  "_market_totals": {
+   "usa": 94482987376.0,
+   "eu": 68323599256.027,
+   "china": 8481734550.0,
+   "japan": 5639315393.094998,
+   "uk": 13102462267.410004,
+   "korea": 4929012021.0,
+   "canada": 5554184926.325,
+   "mexico": 8106240149.0,
+   "australia": 6958404355.011001,
+   "uae": 26707257500.364998,
+   "saudi": 7475532761.645999,
+   "singapore": 6661583134.603999,
+   "hongkong": 10166085635.337,
+   "brazil": 7487303637.0
+  },
+  "partners_exports": 25,
+  "partners_imports": 25,
+  "products_exports": 97,
+  "products_imports": 97,
+  "productpages.chapters": 40,
+  "sourcing.world_suppliers": 16,
+  "bilateral.partners": 162
+ }
+}

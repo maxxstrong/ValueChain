@@ -186,11 +186,15 @@ function init() {
 
   /* selector, sorted by total trade with India, latest year */
   const sel = document.getElementById("bilat-select");
+  // biggest trading partner becomes the default; the list is A–Z, because
+  // with 160 countries alphabetical is the only scannable order
   const codes = Object.keys(B.partners).sort((a, b) => {
     const pa = B.partners[a], pb = B.partners[b];
     return (pb.exports[n] + pb.imports[n]) - (pa.exports[n] + pa.imports[n]);
   });
-  for (const c of codes) {
+  const codesAZ = Object.keys(B.partners).sort((a, b) =>
+    B.partners[a].name.localeCompare(B.partners[b].name));
+  for (const c of codesAZ) {
     const p = B.partners[c];
     const o = document.createElement("option");
     o.value = c;

@@ -17,6 +17,19 @@ products.html            Story No. 3: Product pages — pick a product, find the
 sourcing.html            Story No. 4: Sourcing view — who supplies the world, and India
 explainers.html          Story No. 5: Explainers — trade agreements & state export policies
 states.html              Story No. 6: States — which states & districts power exports
+services.html            Story No. 7: Services — the other half of India's trade
+toolkit.html             Exporter's toolkit: markets, schemes, compliance, where to apply
+research.html            Research & open data: RCA, dependence, mirror gaps, downloads
+about.html               About & methodology: sources, cadence, limits, how to cite
+sitemap.xml, robots.txt  Generated for search engines — do not edit by hand
+og/                      Generated link-preview images (WhatsApp, LinkedIn, X)
+scripts/fetch_data.py    Refreshes data/ from UN Comtrade
+scripts/validate.py      The gate: refuses to publish implausible data
+scripts/build_pages.py   Writes dates, headline numbers, tags, sitemap into pages
+scripts/check_dgcis.py   Watches for a new DGCIS quarterly review
+scripts/check_schemes.py Watches export schemes and their expiry dates
+scripts/fetch_services.py Refreshes services trade from the World Bank
+scripts/build_research.py Computes the research metrics
 css/style.css            All styling
 js/main.js               Charts for the main page
 js/h2h.js                Charts for the head-to-head page
@@ -39,7 +52,71 @@ Just **double-click `index.html`** — it opens in your browser and everything
 works, charts and all. No server, no setup. (The chart library comes from a
 CDN, so you need an internet connection the first time.)
 
-## Refreshing the data (do this once or twice a year)
+## The site keeps itself up to date
+
+Two robots do the remembering for you. Both live in `.github/workflows/`
+and run on GitHub's servers — nothing runs on your computer.
+
+**1. `refresh-data.yml` — the monthly data refresh.**
+On the 5th of each month it re-fetches everything from UN Comtrade, rebuilds
+the pages, and pushes if anything changed; Vercel then redeploys. Comtrade
+publishes India's completed year around April–June, so the site picks up a
+new year on its own. You can also run it any time from the repo's **Actions**
+tab → *Refresh trade data* → *Run workflow*.
+
+*It cannot publish bad numbers.* `scripts/validate.py` checks the rebuilt
+data before anything is written: every series present and the right length,
+no zero or negative totals, no country importing more from India than it
+imports in total, no market's India total collapsing between runs, and row
+counts within tolerance. If a check fails the run stops, nothing is
+committed, and the live site keeps serving the last good data. GitHub emails
+you when a scheduled run fails — check that's on at
+<https://github.com/settings/notifications>.
+
+Optional but recommended: get a free key at <https://comtradeapi.un.org>
+and add it to the repo under **Settings → Secrets and variables → Actions**
+as `COMTRADE_API_KEY`. It gives higher rate limits. Never put the key in a
+file — the workflow reads it from the secret.
+
+**2. `schemes-watch.yml` — the exporter-toolkit guard.**
+The toolkit's scheme data (`data/vc_schemes.js`) is the one thing on the site
+that can quietly become wrong — schemes lapse by notification, not on a
+schedule. Two defences:
+
+* every scheme carries `status`, `as_of` and `expires`. `scripts/validate.py`
+  **fails the build** if anything is still marked `active` past its expiry, so
+  the site cannot serve an expired incentive as current;
+* monthly, this workflow re-checks those dates *and* fingerprints the official
+  DGFT, Commerce and MSME scheme pages. If a date has lapsed or a page has
+  changed, it opens an issue listing exactly what to look at.
+
+Marking a scheme `check` is a legitimate answer — readers see it flagged with a
+warning rather than presented as fact.
+
+**3. `dgcis-watch.yml` — the state-data reminder.**
+DGCIS publishes PDFs, not an API, so the States page can't be automated. On
+the 8th of each month this checks the DGCIS publications page and, when a new
+quarterly review appears, opens a GitHub issue titled *"New DGCIS quarterly
+review available"* listing exactly what to update. You get an email; you
+update when you choose.
+
+To check the data yourself at any time:
+
+```
+python3 scripts/validate.py
+```
+
+After editing any page text or the hand-maintained data, run:
+
+```
+python3 scripts/build_pages.py
+```
+
+That regenerates the freshness lines, the headline numbers baked into the
+HTML, the social preview images, `sitemap.xml` and `robots.txt`. Dates and
+figures are never typed by hand.
+
+## Refreshing the data manually (rarely needed now)
 
 UN Comtrade publishes each year's annual figures a few months into the next
 year. When a new year is out:
@@ -147,6 +224,30 @@ From now on, every `git push` redeploys automatically.
    Configuration" tick when it's working, and HTTPS certificates are
    issued automatically. Nothing else to do.
 
+### D. Get the site found (do this the day it goes live)
+
+Technical SEO makes you *eligible* to rank; links are what actually rank you.
+Both are worth an hour.
+
+1. **Google Search Console** — <https://search.google.com/search-console>.
+   Add `valuechain.international` as a **Domain** property, verify with the
+   DNS TXT record it gives you (same registrar page you used for Vercel).
+   Then **Sitemaps** → submit `sitemap.xml`. Then use the search bar at the
+   top to inspect each page URL and click **Request indexing** — seven pages,
+   two minutes.
+2. **Bing Webmaster Tools** — <https://www.bing.com/webmasters>. You can
+   import directly from Search Console. Submit the same sitemap. (Bing also
+   feeds ChatGPT and DuckDuckGo results.)
+3. **Backlinks — the part that actually matters.** Nothing links to the
+   domain yet, so nothing ranks yet. One well-made LinkedIn post per data
+   story, with a chart image and the link, will do more than every technical
+   item above. Beyond that: r/india and r/IndiaSpeaks data posts, Hacker News
+   Show HN, the Open Data Stack Exchange, awesome-public-datasets on GitHub,
+   and emailing trade journalists a specific finding (not a "check out my
+   site") is the highest-yield outreach.
+4. Check `https://valuechain.international/sitemap.xml` and `/robots.txt`
+   both load in a browser after deploying.
+
 ### Alternative: GitHub Pages (also free)
 
 In the GitHub repository go to **Settings → Pages**, set Source to
@@ -227,4 +328,4 @@ and the DNS setup is simpler.
   data/vc_policies.js for the 16 biggest exporter states — edit it there
   when a state publishes a new policy; last checked July 2026.
 
-Built by Shobhit Narayan Singh · An open data project.
+An independent open data project.

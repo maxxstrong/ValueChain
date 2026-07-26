@@ -5,7 +5,8 @@ window.VC_DATA.policies = {
   {"n": "RoDTEP & RoSCTL", "t": "Central remission of embedded taxes on exported goods — applies to every exporter in every state."},
   {"n": "PLI schemes", "t": "Production-linked incentives across 14 sectors (electronics, pharma, textiles, autos...) — the engine behind the phone-export boom."},
   {"n": "Districts as Export Hubs", "t": "DGFT has a District Export Action Plan for every district in India, each with identified products and an export committee."},
-  {"n": "Interest Equalisation Scheme", "t": "Subsidised pre- and post-shipment export credit for MSME exporters."}
+  {"n": "Duty Drawback & Advance Authorisation", "t": "Refund of customs duty on imported inputs, or duty-free import of inputs against an export obligation — the two standard input-duty routes."},
+  {"n": "Interest Equalisation Scheme — CLOSED", "t": "The export credit interest subsidy ended on 31 December 2024. It is still widely quoted as available; it is not. See the toolkit for what replaced it in practice."}
 ],
 "generic": "No state-specific export policy is tracked here yet for this state — but its districts each have a District Export Action Plan under the central Districts-as-Export-Hubs initiative, and the all-India schemes below apply in full.",
 "states": {
