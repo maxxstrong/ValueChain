@@ -53,19 +53,22 @@ function init() {
   document.getElementById("chip-guj").textContent = q[0].share.toFixed(0) + "%";
   const top3 = q[0].share + q[1].share + q[2].share;
   document.getElementById("chip-top3").textContent = top3.toFixed(0) + "%";
-  document.getElementById("chip-dist").textContent = "37%";
+  document.getElementById("chip-dist").textContent =
+    S.districts.rows.reduce((a, d) => a + d.share, 0).toFixed(0) + "%";
 
   /* 05 — quarterly snapshot (demoted; no YoY chips — see brief P1.5) */
   const qc = makeChart("chart-quarter", q.length * 30 + 40);
   qc.setOption(hBar(
     q.map((r) => r.state),
-    q.map((r) => r.q2),
+    q.map((r) => r.cur),
     q.map((r, i) => r.state.indexOf("other") !== -1 ? REST : (i < 3 ? ACCENT : BLUE)),
     (v) => "$" + v.toFixed(1) + " bn"));
   document.getElementById("dl-quarter").addEventListener("click", () =>
     downloadCSV("states-latest-quarter.csv",
-      ["state", "exports_q2_fy2425_bn_usd", "exports_q1_fy2526_bn_usd", "exports_q2_fy2526_bn_usd", "share_pct", "yoy_pct"],
-      q.map((r) => [r.state, r.q2_prev, r.q1, r.q2, r.share, r.yoy])));
+      ["state", "exports_prev_year_same_quarter_bn_usd", "exports_prev_quarter_bn_usd",
+       "exports_" + S.meta.quarter_short.toLowerCase().replace(/[^a-z0-9]+/g, "") + "_bn_usd",
+       "share_pct", "qoq_pct", "yoy_pct"],
+      q.map((r) => [r.state, r.prev_yr, r.prev_q, r.cur, r.share, r.qoq, r.yoy])));
 
   /* 02 — full year top 8 */
   const fy = S.full_year.rows;
@@ -145,10 +148,11 @@ function init() {
     }
     let qline = "";
     if (qrow) {
-      qline = `<span class="dr-why">Q2 FY2025-26 (Jul–Sep 2025): $${qrow.q2.toFixed(1)} bn — ` +
+      qline = `<span class="dr-why">${S.meta.quarter_long}: $${qrow.cur.toFixed(1)} bn — ` +
         `${qrow.share.toFixed(1)}% of India's exports that quarter.</span>`;
     } else if (r.state !== "Lakshadweep") {
-      qline = `<span class="dr-why">Not among the top 15 states DGCIS reports quarterly — figure is for FY 2022-23, the most recent year with complete official coverage.</span>`;
+      const named = S.quarter.rows.filter((x) => x.state.indexOf("other") === -1).length;
+      qline = `<span class="dr-why">Not among the top ${named} states DGCIS names individually in the ${S.meta.quarter_short} review — figure is for FY 2022-23, the most recent year with complete official coverage.</span>`;
     }
     document.getElementById("state-custom").innerHTML =
       `<div class="statecard"><b>${r.state}</b>` +
