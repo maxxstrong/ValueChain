@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>States — ValueChain</title>
+<meta name="description" content="Which Indian states and districts actually do the exporting — from Gujarat's refineries to Noida's phone factories. Official DGCIS and NIRYAT figures.">
+<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23b34700'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>V</text></svg>">
+<!--VC:HEAD-->
+<link rel="canonical" href="https://valuechain.international/states.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ValueChain">
+<meta property="og:title" content="India's export states and districts">
+<meta property="og:description" content="Which Indian states and districts actually do the exporting — from Gujarat's refineries to Noida's phone factories. Official DGCIS and NIRYAT figures.">
+<meta property="og:url" content="https://valuechain.international/states.html">
+<meta property="og:image" content="https://valuechain.international/og/states.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="India's export states and districts">
+<meta name="twitter:description" content="Which Indian states and districts actually do the exporting — from Gujarat's refineries to Noida's phone factories. Official DGCIS and NIRYAT figures.">
+<meta name="twitter:image" content="https://valuechain.international/og/states.png">
+<meta name="author" content="ValueChain">
+<meta name="robots" content="index, follow">
+<script defer src="/_vercel/insights/script.js"></script>
+<!--/VC:HEAD-->
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">Value<span>Chain</span></a>
+    <div class="navlinks">
+      <a href="head-to-head.html">Head-to-Head</a>
+      <a href="products.html">Products</a>
+      <a href="sourcing.html">Sourcing</a>
+      <a href="services.html">Services</a>
+      <a href="states.html" style="background:var(--accent-soft);color:var(--accent)">States</a>
+      <a href="explainers.html">Explainers</a>
+      <a href="msme.html">MSME</a>
+      <a href="toolkit.html">Toolkit</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker-light">Data story No. 6 · DGCIS, Ministry of Commerce</p>
+    <h1>Who inside India<br>does the exporting?</h1>
+    <!--VC:FRESH-->
+    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q2 FY2025-26 (July–September 2025) and FY 2024-25 (April 2024 – March 2025). Page built 27 July 2026.</p>
+    <!--/VC:FRESH--><p class="herosub">
+      India&rsquo;s exports are startlingly concentrated: a handful of states —
+      and even a handful of districts — carry the whole country. Here is the
+      map, from Gujarat&rsquo;s refineries to Noida&rsquo;s phone factories.
+    </p>
+    <div class="heronums">
+      <div class="hn"><span class="hn-num" id="chip-guj">26%</span><span class="hn-lbl">Gujarat&rsquo;s share of India&rsquo;s exports, Q2 FY2025-26</span></div>
+      <div class="hn"><span class="hn-num hn-blue" id="chip-top3">54%</span><span class="hn-lbl">Shipped by just three states, Q2 FY2025-26</span></div>
+      <div class="hn"><span class="hn-num hn-red" id="chip-dist">37%</span><span class="hn-lbl">Shipped by just ten districts, Q2 FY2025-26</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card chart-block" id="fy">
+      <span class="secno">01</span>
+      <h2>The full-year league table</h2>
+      <p class="chart-sub">Merchandise exports, <b>FY 2024-25 (April 2024 – March 2025)</b> — the eight biggest exporter states.</p>
+      <div id="chart-fy" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-fy">⬇ CSV</button>
+      </div>
+      <p class="note">
+        Gujarat alone is about a quarter of India&rsquo;s exports — more than
+        Maharashtra and Karnataka combined. Mineral fuels are roughly a third
+        of what the state ships, most of that leaving through the Jamnagar
+        refinery complex.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="all">
+      <span class="secno">02</span>
+      <h2>Every state and union territory</h2>
+      <p class="chart-sub">
+        All 36, ranked — <b>FY 2022-23 (April 2022 – March 2023)</b>, the most
+        recent year for which the Ministry publishes complete coverage of
+        every state and UT.
+      </p>
+      <div id="chart-all" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-all">⬇ CSV</button>
+      </div>
+      <p class="note">
+        The long tail is stark: the eight North-Eastern states together export
+        less than Goa alone. Landlocked states without mineral or industrial
+        bases barely register — the geography of ports is the geography of
+        trade.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="districts">
+      <span class="secno">03</span>
+      <h2>The ten districts that carry India</h2>
+      <p class="chart-sub">Top exporting districts, <b>Q2 FY2025-26 (July–September 2025)</b> — together nearly 37% of everything India ships.</p>
+      <div id="district-rows"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-districts">⬇ CSV</button>
+      </div>
+      <p class="note">
+        Four of the ten are in Gujarat, three in Maharashtra. Noida (Gautam
+        Buddha Nagar) is Uttar Pradesh&rsquo;s entry — see
+        <a href="explainers.html#policies" style="color:var(--accent-text)">what each state government does for its exporters</a>
+        on the explainers page. This concentration is structural: it barely
+        moves from quarter to quarter.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="sectors">
+      <span class="secno">04</span>
+      <h2>What does each big state ship?</h2>
+      <p class="chart-sub">
+        The top five commodity groups per state (share of the state&rsquo;s
+        exports, <b>Q2 FY2025-26</b>). Click a chip to open that
+        product&rsquo;s global picture.
+      </p>
+      <div id="sector-cards"></div>
+
+      <div class="bilat" id="state-pick">
+        <h3 class="bilat-h">Check any other state</h3>
+        <p class="chart-sub">
+          Pick any of the 36 states and union territories for its export
+          profile — DGCIS publishes the full commodity breakdown only for the
+          top five, so smaller states show what is officially reported.
+        </p>
+        <div class="controls">
+          <select id="state-select" class="chapsel" aria-label="Pick a state"></select>
+        </div>
+        <div id="state-custom"></div>
+        <p class="note note-strong">
+          <i>What this card can and cannot show.</i>
+          Official data thins out below the biggest states, so this card shows
+          each tier honestly rather than guessing:
+          the <i>top 5 states</i> get their full five-commodity breakdown with
+          percentage shares (DGCIS publishes this only for them);
+          the <i>top 15 states</i> also get their Q2 FY2025-26 export value
+          (DGCIS reports quarterly figures only that far down);
+          <i>every other state and UT</i> shows its full-year export value and
+          officially recorded leading export from FY 2022-23 — the most recent
+          year with complete coverage of all 36. All figures are merchandise
+          (goods) only, from the Ministry of Commerce (DGCIS/NIRYAT) — not UN
+          Comtrade, which has no state-level data. Nothing on this card is
+          estimated or extrapolated.
+        </p>
+      </div>
+    </section>
+
+    <section class="card chart-block" id="quarter">
+      <span class="secno">05</span>
+      <h2>The quarterly snapshot</h2>
+      <p class="chart-sub">
+        Merchandise exports by state, <b>Q2 FY2025-26 (July–September 2025)</b>
+        — a single quarter, not an annual rate.
+      </p>
+      <div id="chart-quarter" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-quarter">⬇ CSV</button>
+      </div>
+      <p class="note">
+        <i>Read this one with care.</i> A quarter is a short window: monsoon
+        shipping, festival timing and a single large consignment can all move
+        a state several places. The annual table above is the reliable ranking;
+        this card shows the most recent official quarter for currency, and is
+        superseded whenever DGCIS publishes the next review. Year-on-year
+        growth figures per state are in the CSV rather than on the chart,
+        because quarter-on-quarter percentages are the most volatile numbers
+        on this site.
+      </p>
+    </section>
+
+    <section class="methodology">
+      <h3>About this data</h3>
+      <p>
+        Unlike the rest of this site, state-level trade does not come from UN
+        Comtrade (which only has national data). This page uses the
+        <a href="https://www.dgciskol.gov.in/">DGCIS Quarterly Review of Merchandise Foreign Trade</a>
+        (Ministry of Commerce &amp; Industry, Government of India) — quarterly
+        and district figures from the July–September 2025 review (released
+        November 2025) — and full-year state figures from the Ministry&rsquo;s
+        <a href="https://niryat.gov.in/">NIRYAT</a> portal. Merchandise
+        (goods) only; services excluded throughout. These figures are updated
+        by hand when DGCIS publishes a new quarterly review — they are not
+        refreshed by <code>scripts/fetch_data.py</code>.
+      </p>
+    
+      <p class="cite">
+        <b>How to cite this page.</b> ValueChain. (<span class="latest-year">2025</span>).
+        <i>India’s export states and districts.</i>
+        <a href="https://valuechain.international/states.html">https://valuechain.international/states.html</a>
+      </p>
+    </section>
+  </div>
+
+    <p class="errline">Spotted something that looks wrong? <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Tell us and we’ll check it against the source</a> — corrections are welcome.</p>
+  </main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <span class="brand-foot">Value<span>Chain</span></span><br>
+    An independent open data project ·
+    <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Contact</a> · <a href="about.html">About &amp; methodology</a><br>
+    <span class="licence">Charts and data notes released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span><br>
+    <span class="stamp"></span>
+  </div>
+</footer>
+
+<script src="data/vc_states.js"></script>
+<script src="js/vendor/echarts.min.js" onerror="this.remove()"></script>
+<script src="js/states.js"></script>
+</body>
+</html>

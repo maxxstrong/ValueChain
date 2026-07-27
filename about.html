@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &amp; methodology — ValueChain</title>
+<meta name="description" content="Who built this atlas, where every number comes from, how often it refreshes, what it deliberately excludes, and how to report an error.">
+<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23b34700'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>V</text></svg>">
+<!--VC:HEAD-->
+<link rel="canonical" href="https://valuechain.international/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ValueChain">
+<meta property="og:title" content="About & methodology — ValueChain">
+<meta property="og:description" content="Who built this atlas, where every number comes from, how often it refreshes, what it deliberately excludes, and how to report an error.">
+<meta property="og:url" content="https://valuechain.international/about.html">
+<meta property="og:image" content="https://valuechain.international/og/about.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About & methodology — ValueChain">
+<meta name="twitter:description" content="Who built this atlas, where every number comes from, how often it refreshes, what it deliberately excludes, and how to report an error.">
+<meta name="twitter:image" content="https://valuechain.international/og/about.png">
+<meta name="author" content="ValueChain">
+<meta name="robots" content="index, follow">
+<script defer src="/_vercel/insights/script.js"></script>
+<!--/VC:HEAD-->
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">Value<span>Chain</span></a>
+    <div class="navlinks">
+      <a href="head-to-head.html">Head-to-Head</a>
+      <a href="products.html">Products</a>
+      <a href="sourcing.html">Sourcing</a>
+      <a href="services.html">Services</a>
+      <a href="states.html">States</a>
+      <a href="explainers.html">Explainers</a>
+      <a href="msme.html">MSME</a>
+      <a href="toolkit.html">Toolkit</a>
+      <a href="research.html">Research</a>
+      <a href="about.html" style="background:var(--accent-soft);color:var(--accent)">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker-light">About &amp; methodology</p>
+    <h1>How this atlas<br>is built</h1>
+    <!--VC:FRESH-->
+    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q2 FY2025-26 (July–September 2025) and FY 2024-25 (April 2024 – March 2025). Page built 27 July 2026.</p>
+    <!--/VC:FRESH--><p class="herosub">
+      Every number here comes from official statistics, and every page says
+      which ones and from when. This page explains the sources, the update
+      cadence, the deliberate gaps, and how to tell us we&rsquo;ve got
+      something wrong.
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card chart-block" id="what">
+      <span class="secno">01</span>
+      <h2>What this is</h2>
+      <p class="chart-sub">A free, open data atlas of India&rsquo;s place in world trade.</p>
+      <p class="about-p">
+        ValueChain answers questions that are surprisingly hard to answer
+        elsewhere without a paid subscription: how much of a given product the
+        world buys, how much of that India supplies, who India competes with
+        in each market, where India&rsquo;s own imports come from, and which
+        Indian states and districts actually do the exporting.
+      </p>
+      <p class="about-p">
+        We build and maintain it as an independent open data project. There is
+        no advertising, no tracking of individuals, and nothing is for sale.
+        Every chart downloads as CSV, because a chart you cannot check is just
+        a picture.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="sources">
+      <span class="secno">02</span>
+      <h2>Where the numbers come from</h2>
+      <p class="chart-sub">Two data layers, with different sources and different update rhythms.</p>
+
+      <div class="fta">
+        <div class="fta-head">
+          <h3>National and bilateral trade</h3>
+          <span class="pill">UN Comtrade · refreshes automatically</span>
+        </div>
+        <p class="fta-fact">
+          Everything except the States page comes from
+          <a href="https://comtradeplus.un.org/">UN Comtrade</a>, the United
+          Nations database of official trade statistics reported by countries
+          themselves.
+        </p>
+        <ul>
+          <li>Values are current US dollars. Exports are reported FOB, imports CIF — so a country&rsquo;s reported imports from India will usually exceed India&rsquo;s reported exports to it, because CIF includes freight and insurance.</li>
+          <li>Products are grouped by <b>HS 2-digit chapters</b>. This is coarse by design: it is the level at which almost every country reports consistently, so comparisons are fair.</li>
+          <li>Market-share charts use the <b>buyer&rsquo;s</b> reported imports, not the seller&rsquo;s reported exports — the cleaner basis for comparing suppliers.</li>
+          <li>EU figures are extra-EU trade (reporter 97), i.e. imports from outside the Union.</li>
+        </ul>
+      </div>
+
+      <div class="fta">
+        <div class="fta-head">
+          <h3>State and district trade</h3>
+          <span class="pill">DGCIS / NIRYAT · updated by hand</span>
+        </div>
+        <p class="fta-fact">
+          UN Comtrade has no state-level data, so the
+          <a href="states.html">States page</a> uses India&rsquo;s own
+          Ministry of Commerce sources instead.
+        </p>
+        <ul>
+          <li>Quarterly state, sector and district figures: the <a href="https://www.dgciskol.gov.in/">DGCIS Quarterly Review of Merchandise Foreign Trade</a>.</li>
+          <li>Full-year state figures: the Ministry&rsquo;s <a href="https://niryat.gov.in/">NIRYAT</a> portal.</li>
+          <li>DGCIS publishes PDFs rather than an API, so these numbers are transcribed by hand. Each card names its exact period, and a robot opens a reminder issue when a new review is published.</li>
+        </ul>
+      </div>
+
+      <div class="fta">
+        <div class="fta-head">
+          <h3>Trade agreements and state policies</h3>
+          <span class="pill">Government sources · checked periodically</span>
+        </div>
+        <p class="fta-fact">
+          The <a href="explainers.html">Explainers page</a> is curated from
+          primary government material — PIB releases, agreement texts, and
+          state industrial and export policy documents.
+        </p>
+        <ul>
+          <li>Agreement statuses were last verified in July 2026.</li>
+          <li>Policy summaries are orientation, not legal advice: tariff schedules run to thousands of lines. Verify your own HS codes in the official schedules before acting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card chart-block" id="cadence">
+      <span class="secno">03</span>
+      <h2>How often it updates</h2>
+      <p class="chart-sub">Most of the site maintains itself.</p>
+      <p class="about-p">
+        A scheduled job re-fetches the entire UN Comtrade layer every month
+        and republishes the site if anything changed. Comtrade normally
+        publishes India&rsquo;s completed year around April to June, so the
+        atlas picks up a new year on its own, without anyone remembering to
+        look.
+      </p>
+      <p class="about-p">
+        That job will not publish bad numbers. Before anything is written, the
+        rebuilt data has to pass a validation gate: every series must be
+        present and the right length, no total may be zero or negative, no
+        country may appear to import more from India than it imports in total,
+        and row counts must stay within tolerance of the previous run. If any
+        check fails, the run stops and the site keeps serving the last
+        known-good data. <b>A stale-but-correct site beats a fresh-but-wrong
+        one.</b>
+      </p>
+      <p class="about-p">
+        The hand-maintained layers — state figures, agreements, policies — are
+        updated when their sources publish, and every card carries the period
+        it refers to so you can see for yourself how current it is.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="limits">
+      <span class="secno">04</span>
+      <h2>What this atlas does not show</h2>
+      <p class="chart-sub">The honest limitations, stated plainly.</p>
+      <p class="note note-strong">
+        <i>Goods only — no services.</i> Every figure on this site is
+        merchandise trade. India&rsquo;s services exports — IT, business
+        services, travel — are roughly comparable in scale to its goods
+        exports and are arguably the country&rsquo;s real strength in world
+        trade. Leaving them out is a limitation of the source data (UN
+        Comtrade covers goods), not a judgement about their importance. A
+        services companion is the next data story planned for this site.
+      </p>
+      <ul class="about-list">
+        <li><b>HS 2-digit only.</b> &ldquo;Electronics&rdquo; means HS 85 — electrical equipment and phones, but not computers, which sit in HS 84. Chapter-level grouping hides a lot of product detail.</li>
+        <li><b>Re-exports are not stripped out.</b> Hubs like the UAE, Singapore and Hong Kong re-export a large share of what they import, so their figures overstate final demand.</li>
+        <li><b>Reporting gaps.</b> Russia stopped reporting to UN Comtrade after 2021, so it is absent from world-exporter rankings even where it is a major supplier. A few countries report late; each chart marks the year it is using.</li>
+        <li><b>District data is national-total context.</b> The Explainers and States pages link district clusters to national product totals; India does not publish district-level export data at comparable quality.</li>
+      </ul>
+    </section>
+
+    <section class="card chart-block" id="errors">
+      <span class="secno">05</span>
+      <h2>Found an error? Please tell us</h2>
+      <p class="chart-sub">Corrections are welcome and get fixed fast.</p>
+      <p class="about-p">
+        If a number here contradicts an official source, or a claim looks
+        wrong, we want to know. Send the page, the figure, and what you think
+        it should be, and we will check it against the source data and correct
+        it.
+      </p>
+      <p class="about-p">
+        <a class="hero-cta" style="background:var(--accent);color:#fff"
+           href="https://www.linkedin.com/in/shobhit-narayan-singh/"
+           target="_blank" rel="noopener">Report an error or get in touch →</a>
+      </p>
+    </section>
+
+    <section class="card chart-block" id="reuse">
+      <span class="secno">06</span>
+      <h2>Using this work</h2>
+      <p class="chart-sub">Free to reuse, with attribution.</p>
+      <p class="about-p">
+        The charts, data notes and written analysis on this site are released
+        under a
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 licence</a>
+        (CC BY 4.0). You may copy, adapt and republish them, including
+        commercially, as long as you credit the source. The underlying
+        official statistics remain subject to the terms of UN Comtrade and the
+        Government of India respectively.
+      </p>
+      <p class="cite">
+        <b>How to cite this site.</b> ValueChain. (<span class="latest-year">2025</span>).
+        <i>ValueChain: India in global value chains.</i>
+        <a href="https://valuechain.international">https://valuechain.international</a>
+      </p>
+      <p class="about-p">
+        Journalists and students: every chart has a CSV download button, and
+        the full dataset and build scripts are public. If you need a cut of
+        the data that the site does not offer, ask us.
+      </p>
+    </section>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <span class="brand-foot">Value<span>Chain</span></span><br>
+    An independent open data project ·
+    <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Contact</a> ·
+    <a href="about.html">About &amp; methodology</a><br>
+    <span class="licence">Charts and data notes released under
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span><br>
+    <span class="stamp"></span>
+  </div>
+</footer>
+
+<script src="data/vc_core.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research &amp; data — ValueChain</title>
+<meta name="description" content="Revealed advantage, import dependence, export concentration and mirror-statistics gaps for India — with every dataset free to download under CC BY 4.0.">
+<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23b34700'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>V</text></svg>">
+<!--VC:HEAD-->
+<link rel="canonical" href="https://valuechain.international/research.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ValueChain">
+<meta property="og:title" content="Research & open data — India's revealed advantage and trade gaps">
+<meta property="og:description" content="Revealed advantage, import dependence, export concentration and mirror-statistics gaps for India — with every dataset free to download under CC BY 4.0.">
+<meta property="og:url" content="https://valuechain.international/research.html">
+<meta property="og:image" content="https://valuechain.international/og/research.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research & open data — India's revealed advantage and trade gaps">
+<meta name="twitter:description" content="Revealed advantage, import dependence, export concentration and mirror-statistics gaps for India — with every dataset free to download under CC BY 4.0.">
+<meta name="twitter:image" content="https://valuechain.international/og/research.png">
+<meta name="author" content="ValueChain">
+<meta name="robots" content="index, follow">
+<script defer src="/_vercel/insights/script.js"></script>
+<!--/VC:HEAD-->
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">Value<span>Chain</span></a>
+    <div class="navlinks">
+      <a href="head-to-head.html">Head-to-Head</a>
+      <a href="products.html">Products</a>
+      <a href="sourcing.html">Sourcing</a>
+      <a href="services.html">Services</a>
+      <a href="states.html">States</a>
+      <a href="explainers.html">Explainers</a>
+      <a href="msme.html">MSME</a>
+      <a href="toolkit.html">Toolkit</a>
+      <a href="research.html" style="background:var(--accent-soft);color:var(--accent)">Research</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker-light">Research &amp; open data</p>
+    <h1>Four things the<br>raw numbers show</h1>
+    <!--VC:FRESH-->
+    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q2 FY2025-26 (July–September 2025) and FY 2024-25 (April 2024 – March 2025). Page built 27 July 2026.</p>
+    <!--/VC:FRESH--><p class="herosub">
+      Standard trade-economics measures, computed from this site&rsquo;s data
+      and free to download: where India genuinely competes, where its supply
+      is dangerously concentrated, how narrow its customer base is, and where
+      its trade statistics disagree with its partners&rsquo;.
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="card chart-block" id="advantage">
+      <span class="secno">01</span>
+      <h2>Where India punches above its weight</h2>
+      <p class="chart-sub" id="rca-sub">Revealed advantage by product group.</p>
+      <div class="controls">
+        <div class="seg" data-group="rcaview" role="group" aria-label="Which end of the ranking">
+          <button data-v="top" class="on">Strongest</button>
+          <button data-v="bottom">Weakest</button>
+        </div>
+      </div>
+      <div id="chart-rca" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-rca">⬇ CSV</button>
+      </div>
+      <p class="note">
+        <i>How this is built.</i> India supplies <b id="rca-baseline">—</b> of
+        everything the fourteen tracked markets import. This index is
+        India&rsquo;s share of a single product group divided by that overall
+        share, so <b>1.0 means average</b> and 3.0 means India is three times
+        more present in that product than in its trade as a whole. It is a
+        Balassa revealed-comparative-advantage index computed on the tracked
+        markets rather than on total world trade — directionally the same,
+        but do not quote it as a global RCA.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="dependence">
+      <span class="secno">02</span>
+      <h2>Where India&rsquo;s imports are concentrated</h2>
+      <p class="chart-sub">
+        The largest single supplier&rsquo;s share of India&rsquo;s total import
+        bill for each product group. A tall bar is a supply-chain risk.
+      </p>
+      <div id="chart-dep" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-dep">⬇ CSV</button>
+      </div>
+      <p class="note" id="dep-note">
+        Read this as exposure, not as a verdict — concentration is efficient
+        until it isn&rsquo;t. The denominator is India&rsquo;s own reported
+        world imports of the chapter, so these shares are exact.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="concentration">
+      <span class="secno">03</span>
+      <h2>How narrow is India&rsquo;s customer base?</h2>
+      <p class="chart-sub" id="conc-sub">Export destinations, by share of India&rsquo;s goods exports.</p>
+      <div class="statrow">
+        <div class="sr"><span class="sr-num sr-x" id="conc-top1">…</span><span class="sr-lbl" id="conc-top1-lbl">Largest single market</span></div>
+        <div class="sr"><span class="sr-num sr-m" id="conc-top5">…</span><span class="sr-lbl">Taken by the top five markets</span></div>
+        <div class="sr"><span class="sr-num" id="conc-hhi">…</span><span class="sr-lbl">Herfindahl index (0–10,000)</span></div>
+      </div>
+      <div id="chart-conc" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-conc">⬇ CSV</button>
+      </div>
+      <p class="note">
+        The Herfindahl-Hirschman index is the sum of squared market shares.
+        Competition authorities treat a market above 2,500 as highly
+        concentrated; applied to export destinations, a low number means a
+        country is not dependent on any one buyer. India&rsquo;s spread is one
+        of the quieter strengths in its trade position.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="mirror">
+      <span class="secno">04</span>
+      <h2>When the two sides disagree</h2>
+      <p class="chart-sub">
+        What each partner says it imported from India, against what India says
+        it exported to that partner — same year, same goods, two sets of books.
+      </p>
+      <div id="chart-mirror" class="echart"></div>
+      <div class="chart-foot">
+        <span class="stamp"></span>
+        <button class="dl" id="dl-mirror">⬇ CSV</button>
+      </div>
+      <p class="note note-strong">
+        <i>Why any gap at all is normal — and why big ones are interesting.</i>
+        Partners report imports <b>CIF</b> (including freight and insurance)
+        while India reports exports <b>FOB</b>, so partner figures should
+        exceed India&rsquo;s by roughly 5–15% as a matter of arithmetic. Gaps
+        far outside that band mean something else: goods re-routed through a
+        third country and re-labelled with India as origin, differences in
+        when a shipment is recorded, or under-declaration. A <i>negative</i>
+        gap — India reporting more than the partner received — usually points
+        to goods declared to a hub and landed elsewhere. This is a signal to
+        investigate, not proof of anything.
+      </p>
+    </section>
+
+    <section class="card chart-block" id="downloads">
+      <span class="secno">05</span>
+      <h2>Take the data</h2>
+      <p class="chart-sub">
+        Every dataset behind this site, as JSON. Free to reuse under CC BY 4.0
+        — please cite it.
+      </p>
+      <div id="dl-list"></div>
+      <p class="note">
+        Each file is regenerated by the monthly refresh, so these URLs stay
+        current. JSON is the canonical form; every chart on the site also has
+        a CSV button for the slice it shows. The build scripts that produce
+        these files are in the repository, so the whole pipeline is auditable.
+      </p>
+      <p class="cite">
+        <b>How to cite this data.</b> ValueChain. (<span class="latest-year">2025</span>).
+        <i>ValueChain: India in global value chains</i> [Data set].
+        <a href="https://valuechain.international">https://valuechain.international</a>
+      </p>
+    </section>
+
+    <section class="methodology">
+      <h3>About these measures</h3>
+      <p>
+        All four are computed by <code>scripts/build_research.py</code> from
+        the datasets published above — nothing is estimated or modelled. The
+        revealed-advantage and dependence measures use HS 2-digit chapters
+        across the markets this site tracks; the concentration measure uses
+        India&rsquo;s own reported exports to every partner; the mirror table
+        uses partner-reported imports from India, fetched directly from UN
+        Comtrade.
+      </p>
+      <p>
+        Known limits: the tracked markets are large but not the whole world,
+        so shares are of tracked trade rather than global trade; chapter-level
+        grouping hides product detail; and merchandise only — services are not
+        in UN Comtrade. See <a href="about.html#limits">the full limitations</a>.
+      </p>
+      <p class="cite">
+        <b>How to cite this page.</b> ValueChain. (<span class="latest-year">2025</span>).
+        <i>Research &amp; data: revealed advantage, dependence and mirror gaps.</i>
+        <a href="https://valuechain.international/research.html">https://valuechain.international/research.html</a>
+      </p>
+    </section>
+
+    <p class="errline">Using this in a paper or a story?
+      <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Tell us what you need</a> — we are happy to cut the data differently.</p>
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <span class="brand-foot">Value<span>Chain</span></span><br>
+    An independent open data project ·
+    <a href="https://www.linkedin.com/in/shobhit-narayan-singh/" target="_blank" rel="noopener">Contact</a> · <a href="about.html">About &amp; methodology</a><br>
+    <span class="licence">Charts and data notes released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span><br>
+    <span class="stamp"></span>
+  </div>
+</footer>
+
+<script src="data/vc_core.js"></script>
+<script src="data/vc_research.js"></script>
+<script src="js/vendor/echarts.min.js" onerror="this.remove()"></script>
+<script src="js/research.js"></script>
+</body>
+</html>
