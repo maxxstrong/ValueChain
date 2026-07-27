@@ -1,0 +1,132 @@
+{
+ "year": 2025,
+ "world_total": 445769600047.189,
+ "rows": [
+  {
+   "code": "842",
+   "name": "United States",
+   "value": 92570077496.315
+  },
+  {
+   "code": "784",
+   "name": "United Arab Emirates",
+   "value": 38666438796.675
+  },
+  {
+   "code": "528",
+   "name": "Netherlands",
+   "value": 19056821154.774
+  },
+  {
+   "code": "156",
+   "name": "China",
+   "value": 18085971449.002
+  },
+  {
+   "code": "826",
+   "name": "United Kingdom",
+   "value": 13768075173.801
+  },
+  {
+   "code": "276",
+   "name": "Germany",
+   "value": 11252588219.045
+  },
+  {
+   "code": "50",
+   "name": "Bangladesh",
+   "value": 11251040507.938
+  },
+  {
+   "code": "682",
+   "name": "Saudi Arabia",
+   "value": 10790222950.009
+  },
+  {
+   "code": "702",
+   "name": "Singapore",
+   "value": 10733328833.861
+  },
+  {
+   "code": "36",
+   "name": "Australia",
+   "value": 7749854513.402
+  },
+  {
+   "code": "380",
+   "name": "Italy",
+   "value": 7487664342.021
+  },
+  {
+   "code": "524",
+   "name": "Nepal",
+   "value": 7450105545.464
+  },
+  {
+   "code": "251",
+   "name": "France",
+   "value": 7294000791.568
+  },
+  {
+   "code": "344",
+   "name": "Hong Kong SAR",
+   "value": 7213398436.487
+  },
+  {
+   "code": "710",
+   "name": "South Africa",
+   "value": 6992319195.146
+  },
+  {
+   "code": "76",
+   "name": "Brazil",
+   "value": 6929252037.426
+  },
+  {
+   "code": "724",
+   "name": "Spain",
+   "value": 6600998183.37
+  },
+  {
+   "code": "56",
+   "name": "Belgium",
+   "value": 6573226312.563
+  },
+  {
+   "code": "458",
+   "name": "Malaysia",
+   "value": 6338557944.125
+  },
+  {
+   "code": "392",
+   "name": "Japan",
+   "value": 6120256370.443
+  },
+  {
+   "code": "704",
+   "name": "Vietnam",
+   "value": 6056801255.195
+  },
+  {
+   "code": "410",
+   "name": "South Korea",
+   "value": 6013535441.327
+  },
+  {
+   "code": "484",
+   "name": "Mexico",
+   "value": 5556292720.206
+  },
+  {
+   "code": "764",
+   "name": "Thailand",
+   "value": 5062533595.111
+  },
+  {
+   "code": "834",
+   "name": "Tanzania",
+   "value": 5021725623.699
+  }
+ ],
+ "others": 115134513158.21606
+}

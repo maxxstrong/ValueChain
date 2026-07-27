@@ -1,0 +1,490 @@
+{
+ "year": 2025,
+ "rows": [
+  {
+   "hs2": "27",
+   "label": "Mineral fuels & oils",
+   "value": 209101605465.561
+  },
+  {
+   "hs2": "85",
+   "label": "Electrical machinery & electronics",
+   "value": 100537835027.546
+  },
+  {
+   "hs2": "71",
+   "label": "Gems & precious metals",
+   "value": 93961452352.612
+  },
+  {
+   "hs2": "84",
+   "label": "Machinery & mechanical appliances",
+   "value": 70691278272.616
+  },
+  {
+   "hs2": "29",
+   "label": "Organic chemicals",
+   "value": 25731507387.261
+  },
+  {
+   "hs2": "39",
+   "label": "Plastics",
+   "value": 22010286826.535
+  },
+  {
+   "hs2": "15",
+   "label": "Animal & vegetable oils",
+   "value": 18846748172.666
+  },
+  {
+   "hs2": "72",
+   "label": "Iron & steel",
+   "value": 16460115020.01
+  },
+  {
+   "hs2": "28",
+   "label": "Inorganic chemicals",
+   "value": 15216862124.306
+  },
+  {
+   "hs2": "90",
+   "label": "Optical & medical instruments",
+   "value": 14828074095.163
+  },
+  {
+   "hs2": "31",
+   "label": "Fertilisers",
+   "value": 14171272537.31
+  },
+  {
+   "hs2": "74",
+   "label": "Copper",
+   "value": 11840549670.348
+  },
+  {
+   "hs2": "88",
+   "label": "Aircraft & spacecraft",
+   "value": 11361947815.169
+  },
+  {
+   "hs2": "76",
+   "label": "Aluminium",
+   "value": 9844574156.137
+  },
+  {
+   "hs2": "26",
+   "label": "Ores, slag & ash",
+   "value": 9535858537.494
+  },
+  {
+   "hs2": "87",
+   "label": "Vehicles & parts",
+   "value": 9075504405.489
+  },
+  {
+   "hs2": "38",
+   "label": "Misc. chemical products",
+   "value": 8674684529.227
+  },
+  {
+   "hs2": "73",
+   "label": "Iron & steel articles",
+   "value": 5676708044.5
+  },
+  {
+   "hs2": "08",
+   "label": "Fruit & nuts",
+   "value": 5586097131.996
+  },
+  {
+   "hs2": "25",
+   "label": "Salt, sulphur, stone & cement",
+   "value": 5192575016.637
+  },
+  {
+   "hs2": "40",
+   "label": "Rubber",
+   "value": 4861817762.456
+  },
+  {
+   "hs2": "89",
+   "label": "Ships & boats",
+   "value": 4607467668.539
+  },
+  {
+   "hs2": "07",
+   "label": "Vegetables",
+   "value": 4290940207.344
+  },
+  {
+   "hs2": "30",
+   "label": "Pharmaceuticals",
+   "value": 3488649933.888
+  },
+  {
+   "hs2": "47",
+   "label": "Wood pulp",
+   "value": 3357675394.139
+  },
+  {
+   "hs2": "48",
+   "label": "Paper & paperboard",
+   "value": 3101383991.455
+  },
+  {
+   "hs2": "70",
+   "label": "Glass & glassware",
+   "value": 2862331625.057
+  },
+  {
+   "hs2": "32",
+   "label": "Dyes, paints & inks",
+   "value": 2643406968.495
+  },
+  {
+   "hs2": "44",
+   "label": "Wood & charcoal",
+   "value": 2479368297.273
+  },
+  {
+   "hs2": "52",
+   "label": "Cotton",
+   "value": 2184109314.531
+  },
+  {
+   "hs2": "94",
+   "label": "Furniture & lighting",
+   "value": 1907190050.343
+  },
+  {
+   "hs2": "54",
+   "label": "Man-made filaments",
+   "value": 1783461784.471
+  },
+  {
+   "hs2": "82",
+   "label": "Tools & cutlery",
+   "value": 1591080297.752
+  },
+  {
+   "hs2": "33",
+   "label": "Perfumes & cosmetics",
+   "value": 1520085519.623
+  },
+  {
+   "hs2": "34",
+   "label": "Soaps & waxes",
+   "value": 1425231890.355
+  },
+  {
+   "hs2": "17",
+   "label": "Sugar & confectionery",
+   "value": 1409414158.496
+  },
+  {
+   "hs2": "22",
+   "label": "Beverages & spirits",
+   "value": 1400108876.303
+  },
+  {
+   "hs2": "99",
+   "label": "Unspecified commodities",
+   "value": 1330974364.245
+  },
+  {
+   "hs2": "09",
+   "label": "Coffee, tea & spices",
+   "value": 1289199515.598
+  },
+  {
+   "hs2": "83",
+   "label": "Misc. metal products",
+   "value": 1271159222.419
+  },
+  {
+   "hs2": "78",
+   "label": "Lead",
+   "value": 1226358020.532
+  },
+  {
+   "hs2": "75",
+   "label": "Nickel",
+   "value": 1175089967.739
+  },
+  {
+   "hs2": "35",
+   "label": "Glues & enzymes",
+   "value": 1155907057.527
+  },
+  {
+   "hs2": "68",
+   "label": "Stone & cement articles",
+   "value": 1134398227.672
+  },
+  {
+   "hs2": "18",
+   "label": "Cocoa",
+   "value": 1104722995.272
+  },
+  {
+   "hs2": "79",
+   "label": "Zinc",
+   "value": 1044526089.221
+  },
+  {
+   "hs2": "60",
+   "label": "Knitted fabrics",
+   "value": 993407625.235
+  },
+  {
+   "hs2": "69",
+   "label": "Ceramics",
+   "value": 992457132.865
+  },
+  {
+   "hs2": "55",
+   "label": "Man-made staple fibres",
+   "value": 987876276.127
+  },
+  {
+   "hs2": "59",
+   "label": "Coated industrial textiles",
+   "value": 898732317.045
+  },
+  {
+   "hs2": "62",
+   "label": "Apparel (woven)",
+   "value": 897228204.227
+  },
+  {
+   "hs2": "86",
+   "label": "Railway equipment",
+   "value": 819604481.194
+  },
+  {
+   "hs2": "23",
+   "label": "Food residues & animal feed",
+   "value": 817148597.204
+  },
+  {
+   "hs2": "61",
+   "label": "Apparel (knitted)",
+   "value": 780628296.77
+  },
+  {
+   "hs2": "12",
+   "label": "Oil seeds & fodder",
+   "value": 743123036.499
+  },
+  {
+   "hs2": "81",
+   "label": "Other base metals",
+   "value": 737381342.615
+  },
+  {
+   "hs2": "91",
+   "label": "Clocks & watches",
+   "value": 730723611.888
+  },
+  {
+   "hs2": "63",
+   "label": "Made-up textiles & rags",
+   "value": 669161761.573
+  },
+  {
+   "hs2": "96",
+   "label": "Misc. manufactured articles",
+   "value": 634844215.929
+  },
+  {
+   "hs2": "95",
+   "label": "Toys, games & sports goods",
+   "value": 621517228.193
+  },
+  {
+   "hs2": "64",
+   "label": "Footwear",
+   "value": 579052420.51
+  },
+  {
+   "hs2": "53",
+   "label": "Jute & other plant fibres",
+   "value": 555871392.351
+  },
+  {
+   "hs2": "42",
+   "label": "Leather goods & bags",
+   "value": 530702860.703
+  },
+  {
+   "hs2": "80",
+   "label": "Tin",
+   "value": 500200008.431
+  },
+  {
+   "hs2": "56",
+   "label": "Wadding, felt & ropes",
+   "value": 477605457.384
+  },
+  {
+   "hs2": "13",
+   "label": "Gums & resins",
+   "value": 416913457.369
+  },
+  {
+   "hs2": "41",
+   "label": "Raw hides & leather",
+   "value": 407216587.804
+  },
+  {
+   "hs2": "51",
+   "label": "Wool & animal hair",
+   "value": 318140521.387
+  },
+  {
+   "hs2": "03",
+   "label": "Fish & seafood",
+   "value": 293061424.1
+  },
+  {
+   "hs2": "97",
+   "label": "Works of art",
+   "value": 276325850.719
+  },
+  {
+   "hs2": "21",
+   "label": "Misc. food preparations",
+   "value": 259615349.792
+  },
+  {
+   "hs2": "49",
+   "label": "Printed books & media",
+   "value": 245008628.612
+  },
+  {
+   "hs2": "37",
+   "label": "Photographic goods",
+   "value": 237980634.807
+  },
+  {
+   "hs2": "58",
+   "label": "Special woven fabrics",
+   "value": 234310106.657
+  },
+  {
+   "hs2": "20",
+   "label": "Prepared fruit & vegetables",
+   "value": 219629805.886
+  },
+  {
+   "hs2": "10",
+   "label": "Cereals",
+   "value": 211347897.95
+  },
+  {
+   "hs2": "19",
+   "label": "Cereal preparations",
+   "value": 210243795.318
+  },
+  {
+   "hs2": "50",
+   "label": "Silk",
+   "value": 201044904.666
+  },
+  {
+   "hs2": "57",
+   "label": "Carpets",
+   "value": 174445226.681
+  },
+  {
+   "hs2": "93",
+   "label": "Arms & ammunition",
+   "value": 158609580.971
+  },
+  {
+   "hs2": "24",
+   "label": "Tobacco",
+   "value": 142412338.714
+  },
+  {
+   "hs2": "14",
+   "label": "Other vegetable products",
+   "value": 135115887.366
+  },
+  {
+   "hs2": "11",
+   "label": "Milling products & starches",
+   "value": 124182965.01
+  },
+  {
+   "hs2": "92",
+   "label": "Musical instruments",
+   "value": 83172070.443
+  },
+  {
+   "hs2": "04",
+   "label": "Dairy, eggs & honey",
+   "value": 75954391.517
+  },
+  {
+   "hs2": "06",
+   "label": "Live plants & flowers",
+   "value": 66515349.328
+  },
+  {
+   "hs2": "05",
+   "label": "Other animal products",
+   "value": 52665612.556
+  },
+  {
+   "hs2": "65",
+   "label": "Headgear",
+   "value": 46632871.386
+  },
+  {
+   "hs2": "66",
+   "label": "Umbrellas & sticks",
+   "value": 42451499.023
+  },
+  {
+   "hs2": "67",
+   "label": "Feathers & artificial flowers",
+   "value": 36675855.398
+  },
+  {
+   "hs2": "36",
+   "label": "Explosives & matches",
+   "value": 26065534.019
+  },
+  {
+   "hs2": "01",
+   "label": "Live animals",
+   "value": 25864245.529
+  },
+  {
+   "hs2": "02",
+   "label": "Meat",
+   "value": 13366903.25
+  },
+  {
+   "hs2": "45",
+   "label": "Cork",
+   "value": 12100958.675
+  },
+  {
+   "hs2": "46",
+   "label": "Basketware",
+   "value": 9052235.487
+  },
+  {
+   "hs2": "16",
+   "label": "Prepared meat & fish",
+   "value": 8997223.019
+  },
+  {
+   "hs2": "43",
+   "label": "Furskins",
+   "value": 7100171.545
+  }
+ ]
+}
