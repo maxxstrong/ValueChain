@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Data files are open — see the CC BY 4.0 licence in the footer.
-Sitemap: https://valuechain.international/sitemap.xml
