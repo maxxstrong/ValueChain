@@ -1,31 +1,31 @@
 window.VC_DATA = window.VC_DATA || {};
 window.VC_DATA.states = {
-"meta": {"quarter": "Jul–Sep 2025 (Q2 FY 2025-26)", "released": "November 2025",
+"meta": {"quarter": "Jan\u2013Mar 2026 (Q4 FY 2025-26)",
+  "quarter_short": "Q4 FY2025-26",
+  "quarter_long": "Q4 FY2025-26 (January\u2013March 2026)",
+  "released": "June 2026",
+  "review_title": "Quarterly Review of Merchandise Foreign Trade January-March, 2026",
   "source": "DGCIS Quarterly Review of Merchandise Foreign Trade, Ministry of Commerce & Industry",
-  "full_year_label": "FY 2024-25 (Apr 2024–Mar 2025)",
-  "all_states_year": "FY 2022-23 (Apr 2022–Mar 2023)"},
+  "source_url": "https://dgciskol.gov.in/writereaddata/Downloads/20260608125806Report%20Q4%20FY25-26.pdf",
+  "full_year_label": "FY 2024-25 (Apr 2024\u2013Mar 2025)",
+  "all_states_year": "FY 2022-23 (Apr 2022\u2013Mar 2023)"},
 
 "quarter": {
-  "note": "Values in $ billion. YoY compares Q2 FY25-26 with Q2 FY24-25.",
+  "note": "Values in $ billion, Q4 FY2025-26 (Jan\u2013Mar 2026). DGCIS names the top ten states individually and aggregates the rest. qoq compares with Q3 FY2025-26; yoy with Q4 FY2024-25. Source: DGCIS Q4 FY25-26 review, Table 7a.",
   "rows": [
-    {"state": "Gujarat",        "q2_prev": 24.97, "q1": 29.78, "q2": 27.64, "share": 25.54, "yoy": 10.69},
-    {"state": "Maharashtra",    "q2_prev": 15.90, "q1": 16.85, "q2": 17.53, "share": 16.19, "yoy": 10.24},
-    {"state": "Tamil Nadu",     "q2_prev": 11.11, "q1": 14.77, "q2": 13.47, "share": 12.44, "yoy": 21.26},
-    {"state": "Karnataka",      "q2_prev": 6.50,  "q1": 9.43,  "q2": 8.29,  "share": 7.66,  "yoy": 27.57},
-    {"state": "Uttar Pradesh",  "q2_prev": 5.26,  "q1": 5.49,  "q2": 5.69,  "share": 5.25,  "yoy": 8.05},
-    {"state": "Andhra Pradesh", "q2_prev": 5.34,  "q1": 5.26,  "q2": 4.93,  "share": 4.56,  "yoy": -7.57},
-    {"state": "Haryana",        "q2_prev": 4.53,  "q1": 5.12,  "q2": 4.77,  "share": 4.41,  "yoy": 5.33},
-    {"state": "Telangana",      "q2_prev": 4.44,  "q1": 3.46,  "q2": 3.45,  "share": 3.19,  "yoy": -22.16},
-    {"state": "West Bengal",    "q2_prev": 2.95,  "q1": 3.08,  "q2": 3.33,  "share": 3.08,  "yoy": 13.11},
-    {"state": "Rajasthan",      "q2_prev": 2.59,  "q1": 2.81,  "q2": 2.81,  "share": 2.60,  "yoy": 8.60},
-    {"state": "Delhi",          "q2_prev": 2.53,  "q1": 2.72,  "q2": 2.72,  "share": 2.51,  "yoy": 7.39},
-    {"state": "Odisha",         "q2_prev": 2.32,  "q1": 2.55,  "q2": 2.55,  "share": 2.35,  "yoy": 9.69},
-    {"state": "Madhya Pradesh", "q2_prev": 1.83,  "q1": 1.92,  "q2": 1.94,  "share": 1.79,  "yoy": 5.56},
-    {"state": "Punjab",         "q2_prev": 1.68,  "q1": 1.77,  "q2": 1.81,  "share": 1.68,  "yoy": 7.99},
-    {"state": "Kerala",         "q2_prev": 1.16,  "q1": 1.18,  "q2": 1.34,  "share": 1.24,  "yoy": 15.64},
-    {"state": "All other states & UTs", "q2_prev": 6.55, "q1": 5.36, "q2": 5.97, "share": 5.52, "yoy": -8.83}
+    {"state": "Gujarat",        "cur": 26.99, "share": 24.09, "prev_q": 26.46, "qoq":  1.98, "prev_yr": 27.77, "yoy":  -2.81},
+    {"state": "Maharashtra",    "cur": 18.10, "share": 16.16, "prev_q": 17.63, "qoq":  2.66, "prev_yr": 17.55, "yoy":   3.18},
+    {"state": "Tamil Nadu",     "cur": 15.52, "share": 13.85, "prev_q": 15.55, "qoq": -0.17, "prev_yr": 15.49, "yoy":   0.20},
+    {"state": "Karnataka",      "cur":  8.33, "share":  7.44, "prev_q":  8.42, "qoq": -0.97, "prev_yr":  9.08, "yoy":  -8.24},
+    {"state": "Uttar Pradesh",  "cur":  5.72, "share":  5.11, "prev_q":  5.87, "qoq": -2.50, "prev_yr":  6.06, "yoy":  -5.60},
+    {"state": "Haryana",        "cur":  5.52, "share":  4.93, "prev_q":  5.16, "qoq":  6.95, "prev_yr":  5.27, "yoy":   4.65},
+    {"state": "Andhra Pradesh", "cur":  5.00, "share":  4.46, "prev_q":  4.78, "qoq":  4.57, "prev_yr":  5.25, "yoy":  -4.73},
+    {"state": "Telangana",      "cur":  3.57, "share":  3.18, "prev_q":  3.39, "qoq":  5.26, "prev_yr":  4.81, "yoy": -25.85},
+    {"state": "West Bengal",    "cur":  3.27, "share":  2.92, "prev_q":  3.20, "qoq":  2.35, "prev_yr":  3.50, "yoy":  -6.52},
+    {"state": "Odisha",         "cur":  3.01, "share":  2.68, "prev_q":  2.82, "qoq":  6.54, "prev_yr":  2.63, "yoy":  14.12},
+    {"state": "All other states & UTs", "cur": 17.00, "share": 15.17, "prev_q": 16.95, "qoq": 0.27, "prev_yr": 17.88, "yoy": -4.95}
   ],
-  "total": {"q2_prev": 99.65, "q1": 111.56, "q2": 108.24}
+  "total": {"cur": 112.03, "prev_q": 110.23, "prev_yr": 115.30, "qoq": 1.63, "yoy": -2.84}
 },
 
 "full_year": {
@@ -43,54 +43,54 @@ window.VC_DATA.states = {
 },
 
 "sectors": {
-  "note": "Each big exporter's top five commodity groups (HS 2-digit) and their share of the state's exports, Jul–Sep 2025.",
+  "note": "Each leading exporter's top five commodity groups (ITC-HS 2-digit) as a share of that state's exports, Q4 FY2025-26 (Jan\u2013Mar 2026). DGCIS publishes this breakdown for the top five states only. Source: DGCIS Q4 FY25-26 review, Table 7b.",
   "rows": [
     {"state": "Gujarat", "items": [
-      {"hs": "27", "name": "Mineral fuels & oils", "share": 33.81},
-      {"hs": "71", "name": "Gems & precious metals", "share": 8.30},
-      {"hs": "29", "name": "Organic chemicals", "share": 6.41},
-      {"hs": "84", "name": "Machinery", "share": 4.43},
-      {"hs": "30", "name": "Pharmaceuticals", "share": 4.24}]},
+      {"hs": "27", "name": "Mineral fuels & oils", "share": 33.96},
+      {"hs": "71", "name": "Gems & precious metals", "share": 8.06},
+      {"hs": "29", "name": "Organic chemicals", "share": 6.22},
+      {"hs": "30", "name": "Pharmaceuticals", "share": 5.22},
+      {"hs": "84", "name": "Machinery", "share": 4.00}]},
     {"state": "Maharashtra", "items": [
-      {"hs": "71", "name": "Gems & precious metals", "share": 19.88},
-      {"hs": "84", "name": "Machinery", "share": 13.17},
-      {"hs": "87", "name": "Vehicles & parts", "share": 8.69},
-      {"hs": "85", "name": "Electronics", "share": 7.26},
-      {"hs": "30", "name": "Pharmaceuticals", "share": 6.93}]},
+      {"hs": "71", "name": "Gems & precious metals", "share": 20.38},
+      {"hs": "84", "name": "Machinery", "share": 13.22},
+      {"hs": "87", "name": "Vehicles & parts", "share": 7.36},
+      {"hs": "30", "name": "Pharmaceuticals", "share": 6.09},
+      {"hs": "29", "name": "Organic chemicals", "share": 5.65}]},
     {"state": "Tamil Nadu", "items": [
-      {"hs": "85", "name": "Electronics", "share": 28.02},
-      {"hs": "87", "name": "Vehicles & parts", "share": 15.14},
-      {"hs": "84", "name": "Machinery", "share": 12.58},
-      {"hs": "61", "name": "Apparel (knitted)", "share": 8.56},
-      {"hs": "64", "name": "Footwear", "share": 2.33}]},
+      {"hs": "85", "name": "Electronics", "share": 36.96},
+      {"hs": "87", "name": "Vehicles & parts", "share": 11.84},
+      {"hs": "84", "name": "Machinery", "share": 9.91},
+      {"hs": "61", "name": "Apparel (knitted)", "share": 7.64},
+      {"hs": "71", "name": "Gems & precious metals", "share": 5.11}]},
     {"state": "Karnataka", "items": [
-      {"hs": "85", "name": "Electronics", "share": 21.98},
-      {"hs": "27", "name": "Mineral fuels & oils", "share": 16.09},
-      {"hs": "84", "name": "Machinery", "share": 13.95},
-      {"hs": "87", "name": "Vehicles & parts", "share": 4.92},
-      {"hs": "62", "name": "Apparel (woven)", "share": 4.17}]},
+      {"hs": "85", "name": "Electronics", "share": 32.54},
+      {"hs": "27", "name": "Mineral fuels & oils", "share": 15.37},
+      {"hs": "84", "name": "Machinery", "share": 8.99},
+      {"hs": "62", "name": "Apparel (woven)", "share": 4.61},
+      {"hs": "09", "name": "Coffee, tea & spices", "share": 4.52}]},
     {"state": "Uttar Pradesh", "items": [
-      {"hs": "85", "name": "Electronics", "share": 22.20},
-      {"hs": "02", "name": "Meat (buffalo)", "share": 13.93},
-      {"hs": "84", "name": "Machinery", "share": 5.87},
-      {"hs": "62", "name": "Apparel (woven)", "share": 5.51},
-      {"hs": "64", "name": "Footwear", "share": 4.66}]}
+      {"hs": "85", "name": "Electronics", "share": 25.31},
+      {"hs": "62", "name": "Apparel (woven)", "share": 10.93},
+      {"hs": "02", "name": "Meat (buffalo)", "share": 10.25},
+      {"hs": "84", "name": "Machinery", "share": 4.54},
+      {"hs": "64", "name": "Footwear", "share": 3.40}]}
   ]
 },
 
 "districts": {
-  "note": "Top ten exporting districts, Jul–Sep 2025. Together they ship ~37% of India's exports.",
+  "note": "Top ten exporting districts, Q4 FY2025-26 (Jan\u2013Mar 2026). Together 35.67% of India's exports that quarter. DGCIS gives commodity shares for the top five districts only. Source: DGCIS Q4 FY25-26 review, Tables 8 and 8a.",
   "rows": [
-    {"district": "Jamnagar", "state": "Gujarat", "value": 7.90, "share": 7.30, "why": "One refinery complex — the world's biggest — makes this the petroleum-export capital."},
-    {"district": "Kanchipuram", "state": "Tamil Nadu", "value": 5.57, "share": 5.15, "why": "Smartphone factories: 57% of its exports are electronics."},
-    {"district": "Pune", "state": "Maharashtra", "value": 4.61, "share": 4.26, "why": "Machinery and vehicles — the engineering heartland."},
-    {"district": "Mumbai Suburban", "state": "Maharashtra", "value": 4.05, "share": 3.74, "why": "85% gems & jewellery — the diamond trade lives here."},
-    {"district": "Ahmadabad", "state": "Gujarat", "value": 3.33, "share": 3.08, "why": "Pharma first (20%), then vehicles."},
-    {"district": "Surat", "state": "Gujarat", "value": 3.10, "share": 2.87, "why": "Diamonds and textiles."},
-    {"district": "Bengaluru Urban", "state": "Karnataka", "value": 2.92, "share": 2.69, "why": "Electronics and machinery."},
-    {"district": "Gautam Buddha Nagar (Noida)", "state": "Uttar Pradesh", "value": 2.91, "share": 2.69, "why": "UP's electronics boom — phones assembled in Noida."},
-    {"district": "Mumbai", "state": "Maharashtra", "value": 2.71, "share": 2.50, "why": "The island city's port and trading houses."},
-    {"district": "Kachchh", "state": "Gujarat", "value": 2.65, "share": 2.45, "why": "Mundra port and chemicals."}
+    {"district": "Jamnagar", "state": "Gujarat", "value": 8.80, "share": 7.85, "why": "One refinery complex \u2014 the world's biggest. Mineral fuels are 88.98% of what the district ships."},
+    {"district": "Kanchipuram", "state": "Tamil Nadu", "value": 6.80, "share": 6.07, "why": "Electronics 68.05%, vehicles 15.64% \u2014 the smartphone assembly belt."},
+    {"district": "Pune", "state": "Maharashtra", "value": 4.11, "share": 3.67, "why": "Machinery 29.40% and vehicles 19.50% \u2014 the engineering heartland."},
+    {"district": "Mumbai Suburban", "state": "Maharashtra", "value": 3.33, "share": 2.97, "why": "Gems & precious metals 84.52% \u2014 the diamond trade lives here."},
+    {"district": "Ahmadabad", "state": "Gujarat", "value": 3.17, "share": 2.83, "why": "Vehicles 21.95%, pharmaceuticals 21.12%, machinery 13.58%."},
+    {"district": "Bengaluru Urban", "state": "Karnataka", "value": 3.01, "share": 2.68, "why": "Karnataka's electronics and machinery hub."},
+    {"district": "Surat", "state": "Gujarat", "value": 2.86, "share": 2.56, "why": "Diamond cutting and textiles."},
+    {"district": "Gautam Buddha Nagar (Noida)", "state": "Uttar Pradesh", "value": 2.79, "share": 2.49, "why": "UP's electronics cluster \u2014 phones assembled in Noida."},
+    {"district": "Bharuch", "state": "Gujarat", "value": 2.55, "share": 2.28, "why": "The Dahej and Ankleshwar chemical belt."},
+    {"district": "Mumbai", "state": "Maharashtra", "value": 2.54, "share": 2.27, "why": "The island city's port and trading houses."}
   ]
 },
 
