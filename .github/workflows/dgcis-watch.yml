@@ -40,13 +40,15 @@ jobs:
         with:
           script: |
             const found = process.env.FOUND || '(see workflow log)';
+            const label = process.env.LABEL || '';
             const body = [
               'DGCIS appears to have published a new Quarterly Review of',
               'Merchandise Foreign Trade.',
               '',
-              '**Newest report seen:** ' + found,
+              '**Newest report seen:** ' + (label || found),
+              label ? ('`' + found + '`') : '',
               '',
-              'Source: https://www.dgciskol.gov.in/Publication_QuarterlyReview.aspx',
+              'Source: https://www.dgciskol.gov.in/CI_Quarterly_Review.aspx',
               '',
               '### What to update',
               '1. Download the new review PDF.',
@@ -68,9 +70,10 @@ jobs:
             });
         env:
           FOUND: ${{ steps.check.outputs.found }}
+          LABEL: ${{ steps.check.outputs.label }}
 
       - name: Remember what we saw
-        if: steps.check.outputs.changed == 'true'
+        if: always() && steps.check.outputs.found != ''
         run: |
           git config user.name "valuechain-bot"
           git config user.email "actions@users.noreply.github.com"
