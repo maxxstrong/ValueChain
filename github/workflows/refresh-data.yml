@@ -1,0 +1,85 @@
+# Refresh the UN Comtrade layer of the site, automatically.
+#
+# Runs every Monday at 03:00 UTC, and on demand from the Actions tab.
+# Comtrade publishes India's full year around April–June, so a weekly run
+# catches it within days without anyone watching a calendar.
+#
+# Weekly rather than daily on purpose: this job makes dozens of Comtrade
+# calls and the free tier is rate-limited, while the annual data underneath
+# only moves once a year. Daily would spend the quota to learn nothing.
+#
+# Safety: scripts/fetch_data.py builds every dataset in memory and runs
+# scripts/validate.py before writing anything. If a check fails, the job
+# exits non-zero, NOTHING is committed, and the live site keeps serving the
+# previous (good) data. GitHub emails the repo owner on failed scheduled
+# runs by default — keep that on at
+# https://github.com/settings/notifications ("Actions" → email on failure).
+#
+# The API key lives in repo Settings → Secrets and variables → Actions as
+# COMTRADE_API_KEY. It is never written to the repo. The script also works
+# without one, on the slower public tier.
+
+name: Refresh trade data
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"     # 03:00 UTC every Monday
+  workflow_dispatch: {}      # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch and validate (nothing is written unless all checks pass)
+        env:
+          COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
+        run: python scripts/fetch_data.py --force
+
+      - name: Fetch services trade (World Bank — no key needed)
+        run: python scripts/fetch_services.py
+        continue-on-error: true      # goods data must not fail over services
+
+      - name: Compute research metrics
+        run: python scripts/build_research.py
+
+      - name: Re-render static values, freshness lines and sitemap
+        run: python scripts/build_pages.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "valuechain-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ *.html sitemap.xml robots.txt og/
+          if git diff --cached --quiet; then
+            echo "No changes — data is already current."
+          else
+            git commit -m "Automated data refresh ($(date -u +%Y-%m-%d))"
+            git push
+            echo "Pushed. Vercel will redeploy automatically."
+          fi
+
+      - name: Explain a failure in the run summary
+        if: failure()
+        run: |
+          echo "### Refresh failed — the site was NOT changed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The live site is still serving the last known-good data." >> $GITHUB_STEP_SUMMARY
+          echo "Common causes: UN Comtrade down or rate-limiting, or a" >> $GITHUB_STEP_SUMMARY
+          echo "validation check tripping on implausible numbers." >> $GITHUB_STEP_SUMMARY
+          echo "Open the failed step above to see which check failed." >> $GITHUB_STEP_SUMMARY
