@@ -51,16 +51,16 @@
     <p class="kicker-light">Data story No. 6 · DGCIS, Ministry of Commerce</p>
     <h1>Who inside India<br>does the exporting?</h1>
     <!--VC:FRESH-->
-    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q2 FY2025-26 (July–September 2025) and FY 2024-25 (April 2024 – March 2025). Page built 27 July 2026.</p>
+    <p class="freshness">Trade data: UN Comtrade, calendar year 2025 (series 2016–2025). State data: DGCIS / NIRYAT, Q4 FY2025-26 (January–March 2026) and FY 2024-25 (April 2024 – March 2025). Page built 27 July 2026.</p>
     <!--/VC:FRESH--><p class="herosub">
       India&rsquo;s exports are startlingly concentrated: a handful of states —
       and even a handful of districts — carry the whole country. Here is the
       map, from Gujarat&rsquo;s refineries to Noida&rsquo;s phone factories.
     </p>
     <div class="heronums">
-      <div class="hn"><span class="hn-num" id="chip-guj">26%</span><span class="hn-lbl">Gujarat&rsquo;s share of India&rsquo;s exports, Q2 FY2025-26</span></div>
-      <div class="hn"><span class="hn-num hn-blue" id="chip-top3">54%</span><span class="hn-lbl">Shipped by just three states, Q2 FY2025-26</span></div>
-      <div class="hn"><span class="hn-num hn-red" id="chip-dist">37%</span><span class="hn-lbl">Shipped by just ten districts, Q2 FY2025-26</span></div>
+      <div class="hn"><span class="hn-num" id="chip-guj">24%</span><span class="hn-lbl">Gujarat&rsquo;s share of India&rsquo;s exports, Q4 FY2025-26</span></div>
+      <div class="hn"><span class="hn-num hn-blue" id="chip-top3">54%</span><span class="hn-lbl">Shipped by just three states, Q4 FY2025-26</span></div>
+      <div class="hn"><span class="hn-num hn-red" id="chip-dist">36%</span><span class="hn-lbl">Shipped by just ten districts, Q4 FY2025-26</span></div>
     </div>
   </div>
 </header>
@@ -71,17 +71,18 @@
     <section class="card chart-block" id="fy">
       <span class="secno">01</span>
       <h2>The full-year league table</h2>
-      <p class="chart-sub">Merchandise exports, <b>FY 2024-25 (April 2024 – March 2025)</b> — the eight biggest exporter states.</p>
+      <p class="chart-sub">Merchandise exports, <b>FY 2024-25 (April 2024 – March 2025)</b> — the eight biggest exporter states. This is the most recent full year for which the Ministry has published a complete state league table; FY 2025-26 annual state figures were not available when this page was last updated.</p>
       <div id="chart-fy" class="echart"></div>
       <div class="chart-foot">
         <span class="stamp"></span>
         <button class="dl" id="dl-fy">⬇ CSV</button>
       </div>
       <p class="note">
-        Gujarat alone is about a quarter of India&rsquo;s exports — more than
-        Maharashtra and Karnataka combined. Mineral fuels are roughly a third
-        of what the state ships, most of that leaving through the Jamnagar
-        refinery complex.
+        In FY 2024-25 Gujarat shipped $116.3 bn — more than Maharashtra
+        ($65.9 bn) and Karnataka ($30.5 bn) combined. The concentration
+        persists in the latest quarter: in Q4 FY2025-26 Gujarat was 24.1% of
+        India&rsquo;s exports, and mineral fuels were 33.96% of what the state
+        shipped, most of that leaving through the Jamnagar refinery complex.
       </p>
     </section>
 
@@ -109,18 +110,20 @@
     <section class="card chart-block" id="districts">
       <span class="secno">03</span>
       <h2>The ten districts that carry India</h2>
-      <p class="chart-sub">Top exporting districts, <b>Q2 FY2025-26 (July–September 2025)</b> — together nearly 37% of everything India ships.</p>
+      <p class="chart-sub">Top exporting districts, <b>Q4 FY2025-26 (January–March 2026)</b> — together 35.7% of everything India shipped that quarter.</p>
       <div id="district-rows"></div>
       <div class="chart-foot">
         <span class="stamp"></span>
         <button class="dl" id="dl-districts">⬇ CSV</button>
       </div>
       <p class="note">
-        Four of the ten are in Gujarat, three in Maharashtra. Noida (Gautam
-        Buddha Nagar) is Uttar Pradesh&rsquo;s entry — see
+        Four of the ten are in Gujarat, three in Maharashtra; Tamil Nadu,
+        Karnataka and Uttar Pradesh have one each. Noida (Gautam Buddha
+        Nagar) is Uttar Pradesh&rsquo;s entry — see
         <a href="explainers.html#policies" style="color:var(--accent-text)">what each state government does for its exporters</a>
-        on the explainers page. This concentration is structural: it barely
-        moves from quarter to quarter.
+        on the explainers page. The concentration is structural, though the
+        tail of the list does move: Bharuch entered the top ten in this
+        review, displacing Kachchh.
       </p>
     </section>
 
@@ -129,7 +132,7 @@
       <h2>What does each big state ship?</h2>
       <p class="chart-sub">
         The top five commodity groups per state (share of the state&rsquo;s
-        exports, <b>Q2 FY2025-26</b>). Click a chip to open that
+        exports, <b>Q4 FY2025-26</b>). Click a chip to open that
         product&rsquo;s global picture.
       </p>
       <div id="sector-cards"></div>
@@ -151,8 +154,9 @@
           each tier honestly rather than guessing:
           the <i>top 5 states</i> get their full five-commodity breakdown with
           percentage shares (DGCIS publishes this only for them);
-          the <i>top 15 states</i> also get their Q2 FY2025-26 export value
-          (DGCIS reports quarterly figures only that far down);
+          the <i>top 10 states</i> also get their Q4 FY2025-26 export value
+          (that review names only the top ten individually and aggregates the
+          rest);
           <i>every other state and UT</i> shows its full-year export value and
           officially recorded leading export from FY 2022-23 — the most recent
           year with complete coverage of all 36. All figures are merchandise
@@ -167,8 +171,10 @@
       <span class="secno">05</span>
       <h2>The quarterly snapshot</h2>
       <p class="chart-sub">
-        Merchandise exports by state, <b>Q2 FY2025-26 (July–September 2025)</b>
-        — a single quarter, not an annual rate.
+        Merchandise exports by state, <b>Q4 FY2025-26 (January–March 2026)</b>
+        — a single quarter, not an annual rate. This is the most recent DGCIS
+        review we have processed, which is not necessarily the most recent one
+        published.
       </p>
       <div id="chart-quarter" class="echart"></div>
       <div class="chart-foot">
@@ -178,12 +184,14 @@
       <p class="note">
         <i>Read this one with care.</i> A quarter is a short window: monsoon
         shipping, festival timing and a single large consignment can all move
-        a state several places. The annual table above is the reliable ranking;
-        this card shows the most recent official quarter for currency, and is
-        superseded whenever DGCIS publishes the next review. Year-on-year
-        growth figures per state are in the CSV rather than on the chart,
-        because quarter-on-quarter percentages are the most volatile numbers
-        on this site.
+        a state several places. The annual table above is the reliable ranking.
+        This card covers January–March 2026 — the most recent quarterly review
+        we have read and transcribed. DGCIS may since have published a later
+        one; check
+        <a href="https://www.dgciskol.gov.in/CI_Quarterly_Review.aspx" style="color:var(--accent-text)">the DGCIS listing</a>
+        if currency matters to you. Quarter-on-quarter and year-on-year growth
+        per state are in the CSV rather than on the chart, because those
+        percentages are the most volatile numbers on this site.
       </p>
     </section>
 
@@ -194,8 +202,8 @@
         Comtrade (which only has national data). This page uses the
         <a href="https://www.dgciskol.gov.in/">DGCIS Quarterly Review of Merchandise Foreign Trade</a>
         (Ministry of Commerce &amp; Industry, Government of India) — quarterly
-        and district figures from the July–September 2025 review (released
-        November 2025) — and full-year state figures from the Ministry&rsquo;s
+        and district figures from the January–March 2026 review (released
+        June 2026) — and full-year state figures from the Ministry&rsquo;s
         <a href="https://niryat.gov.in/">NIRYAT</a> portal. Merchandise
         (goods) only; services excluded throughout. These figures are updated
         by hand when DGCIS publishes a new quarterly review — they are not
