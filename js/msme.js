@@ -34,7 +34,11 @@ function init() {
     </div>`).join("");
 
   /* 02 steps */
-  document.getElementById("ms-steps").innerHTML = M.steps.map((s) => `
+  /* The steps are rendered into the served HTML by scripts/build_pages.py so
+     they work without JavaScript. Only draw them here if that did not happen. */
+  const stepsEl = document.getElementById("ms-steps");
+  if (stepsEl.textContent.trim() === "")
+  stepsEl.innerHTML = M.steps.map((s) => `
     <div class="mk">
       <span class="mk-rank">${s.n}</span>
       <div class="mk-main">
@@ -93,17 +97,23 @@ function init() {
     </div>`;
   }).join("");
 
-  /* 06 samadhaan */
+  /* 06 — non-payment. Two separate regimes; the export one comes first
+     because this is an export page and the MSMED Act does not apply abroad. */
   const S = M.samadhaan;
-  document.getElementById("ms-sam-head").textContent = S.headline;
-  document.getElementById("ms-samadhaan").innerHTML =
-    S.points.map((p) => `
-      <div class="mk"><span class="mk-rank">§</span>
+  document.getElementById("ms-sam-head").innerHTML = S.headline;
+  const blk = (b, cls) =>
+    `<h3 class="bilat-h" style="font-size:20px;margin-top:6px">${b.headline}</h3>` +
+    `<p class="mk-why" style="margin-bottom:10px">${b.intro}</p>` +
+    b.points.map((p) => `
+      <div class="mk"><span class="mk-rank">${cls}</span>
         <div class="mk-main"><span class="mk-why" style="margin-top:2px">${p}</span></div>
-      </div>`).join("") +
-    `<p class="note note-strong"><i>The limit of this protection.</i> ${S.caveat}</p>
-     <p><a class="hero-cta" style="background:var(--accent);color:#fff"
-        href="${S.url}" target="_blank" rel="noopener">File on MSME Samadhaan →</a></p>`;
+      </div>`).join("");
+  document.getElementById("ms-samadhaan").innerHTML =
+    blk(S.export, "\u2708") +
+    `<p class="note note-strong" style="margin-top:18px"><i>The limit of this protection.</i> ${S.caveat}</p>` +
+    `<div style="margin-top:26px">${blk(S.domestic, "\u00a7")}</div>` +
+    `<p><a class="hero-cta" style="background:var(--accent);color:#fff"
+        href="${S.domestic.url}" target="_blank" rel="noopener">File on MSME Samadhaan (domestic buyers) \u2192</a></p>`;
 
   /* 07 MSME-heavy sectors, with live market data */
   const P = D.productpages;
