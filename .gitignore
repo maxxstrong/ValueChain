@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Comtrade response cache. Local-only: the CI refresh runs fetch_data.py
+# with --force, so it never reads this — it would only ever commit it.
+data/raw/
