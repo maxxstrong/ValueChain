@@ -1,0 +1,88 @@
+# Keep the exporter toolkit's scheme data from going stale.
+#
+# Government schemes change by notification, not on a schedule, so this job
+# does the remembering: every day it checks whether any scheme entry has
+# passed its stated validity, and whether the official DGFT / Commerce / MSME
+# scheme pages have changed since last time. If either is true it opens an
+# issue telling you exactly what to look at.
+#
+# Daily is safe: the job fetches three pages and compares hashes, and the
+# last-seen fingerprint is committed, so an issue is opened once per real
+# change — not once per run.
+#
+# You are never asked to check "has anything changed?" — you are told.
+
+name: Watch export schemes
+
+on:
+  schedule:
+    - cron: "0 4 * * *"      # 04:00 UTC every day
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check scheme validity and official pages
+        id: check
+        run: python scripts/check_schemes.py
+
+      - name: Open an issue if something needs attention
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let detail = '(see the workflow log)';
+            try { detail = fs.readFileSync('data/schemes_report.md', 'utf8'); } catch (e) {}
+            const body = [
+              'The monthly check found something in the exporter toolkit that',
+              'may need updating.',
+              '',
+              detail,
+              '',
+              '### What to do',
+              '1. Open the official link for each scheme flagged above.',
+              '2. Update `data/vc_schemes.js`: set `status` to `active`',
+              '   (with a fresh `as_of` and `expires`), `check`, or `ended`,',
+              '   and rewrite `status_note` in plain language.',
+              '3. Run `python scripts/validate.py` — it fails while anything is',
+              '   marked active past its expiry date.',
+              '4. Commit. Vercel redeploys automatically.',
+              '',
+              'Leaving a scheme as `check` is a perfectly good answer — it is',
+              'shown to readers with a warning rather than as fact.',
+              '',
+              '_Opened automatically by the schemes-watch workflow._'
+            ].join('\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Export schemes may need updating',
+              body,
+              labels: ['data-update']
+            });
+
+      - name: Remember what we saw
+        run: |
+          git config user.name "valuechain-bot"
+          git config user.email "actions@users.noreply.github.com"
+          rm -f data/schemes_report.md
+          git add data/schemes_seen.json
+          if git diff --cached --quiet; then
+            echo "No fingerprint changes to record."
+          else
+            git commit -m "Record scheme source fingerprints"
+            git push
+          fi
