@@ -220,7 +220,38 @@ PAGES = {
 MARK = {
     "head": ("<!--VC:HEAD-->", "<!--/VC:HEAD-->"),
     "fresh": ("<!--VC:FRESH-->", "<!--/VC:FRESH-->"),
+    "msmesteps": ("<!--VC:MSMESTEPS-->", "<!--/VC:MSMESTEPS-->"),
 }
+
+
+def msme_steps_html():
+    """
+    Render the seven registration steps into static markup.
+
+    These are the substance of the page — what to register, what it costs,
+    how long it takes. They must be in the served HTML so they survive with
+    JavaScript disabled and are visible to crawlers; js/msme.js only takes
+    over if this block is empty. Markup is kept byte-identical to the
+    renderer in js/msme.js so the two cannot drift apart visually.
+    """
+    m = load_js_blob("vc_msme.js", "window.VC_DATA.msme =")
+    out = []
+    for s in m["steps"]:
+        link = (f'<a class="sch-link" href="{s["url"]}" target="_blank" '
+                f'rel="noopener">Official portal \u2192</a>') if s.get("url") else ""
+        out.append(
+            f'<div class="mk">'
+            f'<span class="mk-rank">{s["n"]}</span>'
+            f'<div class="mk-main">'
+            f'<b>{s["name"]}</b>'
+            f'<span class="pill">{s["who"]}</span>'
+            f'<span class="mk-why">{s["what"]}</span>'
+            f'<span class="mk-why"><b>Cost:</b> {s["cost"]} &nbsp;\u00b7&nbsp; '
+            f'<b>Time:</b> {s["time"]}</span>'
+            f'<span class="sch-note"><b>What people get wrong:</b> {s["gotcha"]}</span>'
+            f'{link}'
+            f'</div></div>')
+    return "".join(out)
 
 
 def replace_block(html, kind, payload):
@@ -299,6 +330,14 @@ def build_page(page, cfg, meta, vals, fresh):
             html = html[:m.end()] + insert + html[m.end():]
     else:
         html = replaced
+
+    # 3b. msme.html — bake the seven registration steps into the served HTML.
+    #     They are the substance of that page (what to register, what it
+    #     costs, how long it takes), so they must not depend on JavaScript.
+    if page == "msme.html":
+        stepped = replace_block(html, "msmesteps", msme_steps_html())
+        if stepped is not None:
+            html = stepped
 
     # 4. headline numbers into the raw HTML
     for element_id, value in vals.items():

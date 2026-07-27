@@ -44,7 +44,7 @@ SCRIPT_VERSION = "2.0"
 # Periods for the hand-maintained DGCIS/NIRYAT layer (states page). These are
 # the single source of truth for the dates shown on that page — update them
 # here when you refresh data/vc_states.js, and every label follows.
-DGCIS_QUARTER = "Q2 FY2025-26 (July–September 2025)"
+DGCIS_QUARTER = "Q4 FY2025-26 (January–March 2026)"
 DGCIS_FULL_YEAR = "FY 2024-25 (April 2024 – March 2025)"
 DGCIS_ALL_STATES = "FY 2022-23 (April 2022 – March 2023)"
 
