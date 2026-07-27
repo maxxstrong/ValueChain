@@ -1,8 +1,0 @@
-typeCode,freqCode,refPeriodId,refYear,refMonth,period,reporterCode,reporterISO,reporterDesc,flowCode,flowDesc,partnerCode,partnerISO,partnerDesc,partner2Code,partner2ISO,partner2Desc,classificationCode,classificationSearchCode,isOriginalClassification,cmdCode,cmdDesc,aggrLevel,isLeaf,customsCode,customsDesc,mosCode,motCode,motDesc,qtyUnitCode,qtyUnitAbbr,qty,isQtyEstimated,altQtyUnitCode,altQtyUnitAbbr,altQty,isAltQtyEstimated,netWgt,isNetWgtEstimated,grossWgt,isGrossWgtEstimated,cifvalue,fobvalue,primaryValue,legacyEstimationFlag,isReported,isAggregate
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,42,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,3225153932.88,3225153932.88,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,69,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,611236424.49,611236424.49,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,70,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,839653919.763,839653919.763,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,71,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,1058223324.472,1058223324.472,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,73,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,3955258357.08,3955258357.08,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,82,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,856883583.247,856883583.247,0,False,True
-C,A,20230101,2023,52,2023,704,,,X,,0,,,0,,,H6,HS,True,87,,2,False,C00,,0,0,,-1,,0,False,-1,,0,False,,False,0,False,,4867985274.763,4867985274.763,0,False,True
